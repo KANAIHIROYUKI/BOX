@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.7" name="ichigoplus">
+  <Target name="ichigoplus" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Option name="SupportCPlusplus" value="1"/>
+        <Includepaths>
+          <Includepath path="."/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F407VG"/>
+          <Define name="STM32F4XX"/>
+          <Define name="USE_STDPERIPH_DRIVER"/>
+          <Define name="__ASSEMBLY__"/>
+          <Define name="SUPPORT_CPLUSPLUS"/>
+          <Define name="STM32F4DISCOVERY"/>
+          <Define name="STM32F4DISCOVERY_2LB_3_5"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="nostartfiles" value="0"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Use base C Library"/>
+        <Option name="UserEditLinker" value="-lstdc++; "/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
+        </MemoryAreas>
+        <LocateLinkFile path="../../../../../coocox/coide/configuration/programdata/ichigoplus/arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="ichigoplus"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="30" name="C Library" path="" type="2"/>
+    <Component id="54" name="M4 CMSIS Core" path="" type="2"/>
+    <Component id="500" name="CMSIS BOOT" path="" type="2"/>
+    <Component id="501" name="RCC" path="" type="2"/>
+    <Component id="502" name="PWR" path="" type="2"/>
+    <Component id="503" name="CRC" path="" type="2"/>
+    <Component id="504" name="GPIO" path="" type="2"/>
+    <Component id="505" name="EXTI" path="" type="2"/>
+    <Component id="506" name="RTC" path="" type="2"/>
+    <Component id="507" name="IWDG" path="" type="2"/>
+    <Component id="511" name="DMA" path="" type="2"/>
+    <Component id="512" name="FLASH" path="" type="2"/>
+    <Component id="513" name="TIM" path="" type="2"/>
+    <Component id="514" name="ADC" path="" type="2"/>
+    <Component id="517" name="USART" path="" type="2"/>
+    <Component id="520" name="SDIO" path="" type="2"/>
+    <Component id="521" name="CAN" path="" type="2"/>
+    <Component id="524" name="MISC" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="cmsis_lib/source/stm32f4xx_usart.c" path="cmsis_lib/source/stm32f4xx_usart.c" type="1"/>
+    <File name="layer_driver/base/analog.hpp" path="layer_driver/base/analog.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_req.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_req.h" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
+    <File name="layer_driver/base/system.h" path="layer_driver/base/system.h" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
+    <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfatfs.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfatfs.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core" path="" type="2"/>
+    <File name="cmsis_lib/source/stm32f4xx_iwdg.c" path="cmsis_lib/source/stm32f4xx_iwdg.c" type="1"/>
+    <File name="layer_driver/base/logging.h" path="layer_driver/base/logging.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/ffconf.h" path="layer_driver/board/stm32f4_config/sd/fatfs/ffconf.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/cdc" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/diskio.h" path="layer_driver/board/stm32f4_config/sd/fatfs/diskio.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/stat.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/stat.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_conf.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_conf.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/open.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/open.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/printf.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/printf.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/css_e.css" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/css_e.css" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_i2c.h" path="layer_driver/board/stm32f4_config/config_i2c.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_pwr.c" path="cmsis_lib/source/stm32f4xx_pwr.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest3.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest3.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_ioreq.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_ioreq.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd_int.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd_int.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f5.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f5.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/diskio.c" path="layer_driver/board/stm32f4_config/sd/fatfs/diskio.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/integer.h" path="layer_driver/board/stm32f4_config/sd/fatfs/integer.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_req.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_req.c" type="1"/>
+    <File name="cmsis_lib" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_ioreq.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_ioreq.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/putc.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/putc.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/filename.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/filename.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dinit.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dinit.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/read.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/read.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_can.h" path="cmsis_lib/include/stm32f4xx_can.h" type="1"/>
+    <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_pwm.c" path="layer_driver/board/stm32f4_config/config_pwm.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getfree.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getfree.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd_int.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd_int.h" type="1"/>
+    <File name="layer_driver/base/serial.cpp" path="layer_driver/base/serial.cpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_systick.h" path="layer_driver/board/stm32f4_config/config_systick.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_gpio.c" path="cmsis_lib/source/stm32f4xx_gpio.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_dma.c" path="cmsis_lib/source/stm32f4xx_dma.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_can.c" path="cmsis_lib/source/stm32f4xx_can.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mkfs.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mkfs.html" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chdir.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chdir.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getcwd.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getcwd.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/config_i2c.c" path="layer_driver/board/stm32f4_config/config_i2c.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/eof.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/eof.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/logs/codb-stat-client.2015-04-07.log" path="layer_driver/board/stm32f4_config/logs/codb-stat-client.2015-04-07.log" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
+    <File name="layer_driver/base/encoder.hpp" path="layer_driver/base/encoder.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest2.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest2.png" type="1"/>
+    <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_core.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_core.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/puts.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/puts.html" type="1"/>
+    <File name="layer_driver/base/encoder.cpp" path="layer_driver/base/encoder.cpp" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_iwdg.h" path="cmsis_lib/include/stm32f4xx_iwdg.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/config_usb.h" path="layer_driver/board/stm32f4_config/usb/config_usb.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_sdio.c" path="cmsis_lib/source/stm32f4xx_sdio.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f3.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f3.png" type="1"/>
+    <File name="layer_application" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getlabel.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/getlabel.html" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_exti.c" path="cmsis_lib/source/stm32f4xx_exti.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.c" type="1"/>
+    <File name="layer_driver/base/serial.hpp" path="layer_driver/base/serial.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_defines.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_defines.h" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers3.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers3.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_usr.c" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_usr.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f1.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f1.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/name_converter.h" path="layer_driver/board/stm32f4_config/name_converter.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/fdisk.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/fdisk.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mount.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mount.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_vcp.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_vcp.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.h" type="1"/>
+    <File name="layer_driver/board" path="" type="2"/>
+    <File name="layer_driver/base/util.c" path="layer_driver/base/util.c" type="1"/>
+    <File name="layer_driver/base/system.c" path="layer_driver/base/system.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_core.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_core.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/config_usb.c" path="layer_driver/board/stm32f4_config/usb/config_usb.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfile.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfile.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dread.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dread.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/00readme.txt" path="layer_driver/board/stm32f4_config/sd/fatfs/00readme.txt" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/forward.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/forward.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_flash.h" path="cmsis_lib/include/stm32f4xx_flash.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/utime.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/utime.html" type="1"/>
+    <File name="layer_driver/base/software_reset.c" path="layer_driver/base/software_reset.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/close.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/close.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_crc.h" path="cmsis_lib/include/stm32f4xx_crc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_atadrive.h" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_atadrive.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/iwdg_software_reset.c" path="layer_driver/board/stm32f4_config/iwdg_software_reset.c" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="layer_driver/base/util.h" path="layer_driver/base/util.h" type="1"/>
+    <File name="layer_driver" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_vcp.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/cdc/usbd_cdc_vcp.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/logs/codb-time-client-2015-04-07.log" path="layer_driver/board/stm32f4_config/logs/codb-time-client-2015-04-07.log" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/name_converter.c" path="layer_driver/board/stm32f4_config/name_converter.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f6.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f6.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/readdir.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/readdir.html" type="1"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dwrite.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dwrite.html" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_rtc.c" path="cmsis_lib/source/stm32f4xx_rtc.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/rename.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/rename.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usb_conf.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usb_conf.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dstat.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dstat.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="cmsis_lib/include/stm32f4xx_pwr.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/size.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/size.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf" path="" type="2"/>
+    <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
+    <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/rc.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/rc.html" type="1"/>
+    <File name="layer_driver/base" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f2.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f2.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/lseek.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/lseek.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/iwdg_software_reset.h" path="layer_driver/board/stm32f4_config/iwdg_software_reset.h" type="1"/>
+    <File name="layer_driver/base/digital.hpp" path="layer_driver/base/digital.hpp" type="1"/>
+    <File name="layer_controller/blink.cpp" path="layer_controller/blink.cpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/error.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/error.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_adc.h" path="cmsis_lib/include/stm32f4xx_adc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_port.c" path="layer_driver/board/stm32f4_config/config_port.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/fattime.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/fattime.html" type="1"/>
+    <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
+    <File name="layer_driver/board/error.c" path="layer_driver/board/error.c" type="1"/>
+    <File name="cmsis" path="" type="2"/>
+    <File name="layer_controller/blink.hpp" path="layer_controller/blink.hpp" type="1"/>
+    <File name="main.cpp" path="main.cpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.h" type="1"/>
+    <File name="layer_driver/base/software_reset.h" path="layer_driver/base/software_reset.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/unlink.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/unlink.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_rtc.h" path="cmsis_lib/include/stm32f4xx_rtc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sdir.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sdir.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg" path="" type="2"/>
+    <File name="layer_driver/base/util.hpp" path="layer_driver/base/util.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_port.h" path="layer_driver/board/stm32f4_config/config_port.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/00index_e.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/00index_e.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_usr.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_usr.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_regs.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_regs.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_usbdisk.h" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_usbdisk.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mkdir.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/mkdir.html" type="1"/>
+    <File name="layer_driver/base/utilplus.cpp" path="layer_driver/base/utilplus.cpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_sdcard.h" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_sdcard.h" type="1"/>
+    <File name="layer_driver/board/pin.hpp" path="layer_driver/board/pin.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/tell.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/tell.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib" path="" type="2"/>
+    <File name="layer_driver/board/pin.cpp" path="layer_driver/board/pin.cpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/write.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/write.html" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_flash.c" path="cmsis_lib/source/stm32f4xx_flash.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.h" type="1"/>
+    <File name="layer_driver/base/mcutime.c" path="layer_driver/base/mcutime.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_iwdg.c" path="layer_driver/board/stm32f4_config/config_iwdg.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_pwm.h" path="layer_driver/board/stm32f4_config/config_pwm.h" type="1"/>
+    <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub" path="" type="2"/>
+    <File name="cmsis_lib/source/stm32f4xx_crc.c" path="cmsis_lib/source/stm32f4xx_crc.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.c" path="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f4.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f4.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_usbdisk.c" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_usbdisk.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd" path="" type="2"/>
+    <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
+    <File name="layer_driver/circuit" path="" type="2"/>
+    <File name="cmsis_lib/source" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/modules.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/modules.png" type="1"/>
+    <File name="layer_driver/base/digital.cpp" path="layer_driver/base/digital.cpp" type="1"/>
+    <File name="layer_driver/base/mcutime.h" path="layer_driver/base/mcutime.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.c" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/opendir.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/opendir.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_core.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_core.h" type="1"/>
+    <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
+    <File name="layer_driver/base/pwm.hpp" path="layer_driver/base/pwm.hpp" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_can.c" path="layer_driver/board/stm32f4_config/config_can.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_adc.h" path="layer_driver/board/stm32f4_config/config_adc.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/stm32_ub_fatfs.h" path="layer_driver/board/stm32f4_config/sd/stm32_ub_fatfs.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_systick.c" path="layer_driver/board/stm32f4_config/config_systick.c" type="1"/>
+    <File name="layer_driver/board/error.h" path="layer_driver/board/error.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/rwtest.png" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_iwdg.h" path="layer_driver/board/stm32f4_config/config_iwdg.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/logs" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_atadrive.c" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_atadrive.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_usart.h" path="layer_driver/board/stm32f4_config/config_usart.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd.c" type="1"/>
+    <File name="layer_driver/base/watchdog.c" path="layer_driver/base/watchdog.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfileinfo.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sfileinfo.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_encoder.c" path="layer_driver/board/stm32f4_config/config_encoder.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_adc.c" path="layer_driver/board/stm32f4_config/config_adc.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_can.h" path="layer_driver/board/stm32f4_config/config_can.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/ff.c" path="layer_driver/board/stm32f4_config/sd/fatfs/ff.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_core.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_core.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_sdio.h" path="cmsis_lib/include/stm32f4xx_sdio.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_def.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/core/usbd_def.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dioctl.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/dioctl.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sync.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/sync.html" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_exti.h" path="cmsis_lib/include/stm32f4xx_exti.h" type="1"/>
+    <File name="layer_driver/base/logging.c" path="layer_driver/base/logging.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/truncate.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/truncate.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/readme_ub.txt" path="layer_driver/board/stm32f4_config/sd/fatfs/readme_ub.txt" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_sdcard.c" path="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub/stm32_ub_sdcard.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chdrive.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chdrive.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_dcd.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs" path="" type="2"/>
+    <File name="layer_driver/base/watchdog.h" path="layer_driver/base/watchdog.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/stm32_ub_fatfs.c" path="layer_driver/board/stm32f4_config/sd/stm32_ub_fatfs.c" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chmod.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/chmod.html" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_tim.c" path="cmsis_lib/source/stm32f4xx_tim.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/updates.txt" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/updates.txt" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_usart.c" path="layer_driver/board/stm32f4_config/config_usart.c" type="1"/>
+    <File name="syscalls" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/gets.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/gets.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_encoder.h" path="layer_driver/board/stm32f4_config/config_encoder.h" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/appnote.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/appnote.html" type="1"/>
+    <File name="cmsis_lib/include" path="" type="2"/>
+    <File name="layer_driver/board/stm32f4_config/sd/fatfs/ff.h" path="layer_driver/board/stm32f4_config/sd/fatfs/ff.h" type="1"/>
+    <File name="layer_controller" path="" type="2"/>
+    <File name="layer_driver/base/analog.cpp" path="layer_driver/base/analog.cpp" type="1"/>
+  </Files>
+</Project>
