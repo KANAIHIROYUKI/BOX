@@ -193,7 +193,6 @@ int main(void)
 			}
 		}
 
-
 		switch(testMode){
 
 		case 0:
@@ -322,7 +321,6 @@ int main(void)
 			}
 			break;
 
-
 		case 1:
 			while(flag[0]){
 				serial.printf("ODOMETRY TEST\n\r");
@@ -343,7 +341,6 @@ int main(void)
 			}
 
 			break;
-
 
 		case 2:
 			motor0.drive(1.0,1,0);
@@ -369,7 +366,6 @@ int main(void)
 			motor1.drive(0,1,0);
 			motor2.drive(0,1,0);
 			break;
-
 
 		case 3:
 			encOld0 = enc0.count();
@@ -521,8 +517,6 @@ int main(void)
 
 			break;
 
-
 		}
-
 	}
 }

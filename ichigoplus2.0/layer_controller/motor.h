@@ -85,11 +85,8 @@ public:
 	float ratioMax;
 
 	int encCnt[3];
-	int encCntOld[3];
-	int encTime,encTimeOld;
+	int encTime;
 	int motorRev[3];
-
-
 
 	Omni(Motor &mt0,Motor &mt1,Motor &mt2,Enc0 &enc0,Enc1 &enc1,Enc2 &enc2){
 		this->mt0 = &mt0;
@@ -131,7 +128,6 @@ public:
 
 
 };
-
 
 
 #endif
