@@ -2,7 +2,7 @@
 
 
 void OmniOdometry::update(){
-    radianOrg = enc0->count() + enc1->count() + enc2->count() + radianCorrection  - encOffSet[0]  - encOffSet[1]  - encOffSet[2];	//角度生の値(累積による誤差が発生しない)､負なのは設定とエンコーダの回転が逆なため
+    radianOrg = enc0->count() + enc1->count() + enc2->count();	//角度生の値(累積による誤差が発生しない)､負なのは設定とエンコーダの回転が逆なため
     radianAbs = (radianOrg*M_PI)/(15*length);	//弧度法に直す
 
     while(radianAbs >= 2*M_PI){//0 =< rad =< 2piに直す
@@ -12,9 +12,9 @@ void OmniOdometry::update(){
         radianAbs += 2*M_PI;
     }
 
-    enc[0] = enc0->count() - encOld[0] - encOffSet[0];
-    enc[1] = enc1->count() - encOld[1] - encOffSet[1];
-    enc[2] = enc2->count() - encOld[2] - encOffSet[2];
+    enc[0] = enc0->count() - encOld[0];
+    enc[1] = enc1->count() - encOld[1];
+    enc[2] = enc2->count() - encOld[2];
 
     encTest[0] = enc0->count();
     encTest[1] = enc1->count();
@@ -37,27 +37,17 @@ void OmniOdometry::update(){
         cumulativeY += X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
         degree = radian*180/M_PI;
 
-        encOld[0] = enc0->count() - encOffSet[0];
-        encOld[1] = enc1->count() - encOffSet[1];
-        encOld[2] = enc2->count() - encOffSet[2];
+        encOld[0] = enc0->count();
+        encOld[1] = enc1->count();
+        encOld[2] = enc2->count();
     }else if(encCntDif >= 100){
-    	//radianCorrection -= encCntDif;
-    	encOld[0] = enc0->count() - encOffSet[0];
-        encOld[1] = enc1->count() - encOffSet[1];
-    	encOld[2] = enc2->count() - encOffSet[2];
+    	radianOrg =  - enc0->count() + encOld[0] - enc1->count() + encOld[1] - enc2->count() + encOld[2];
+    	encOld[0] = enc0->count();
+        encOld[1] = enc1->count();
+    	encOld[2] = enc2->count();
     }
 };
 
-void OmniOdometry::reset(){
-	encOffSet[0] = enc0->count();
-	encOffSet[1] = enc1->count();
-	encOffSet[2] = enc2->count();
-	encOld[0] = enc0->count();
-	encOld[1] = enc1->count();
-	encOld[2] = enc2->count();
-	cumulativeX = 0;
-	cumulativeY = 0;
-};
 
 int abs(int value){
 	if(value < 0){

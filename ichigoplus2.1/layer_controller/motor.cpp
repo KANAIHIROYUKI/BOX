@@ -2,7 +2,6 @@
 
 
 void Motor::drive(float p,int a,int b){
-	p*=MOTOR_GAIN;
 	p = 1.0 - p;
 	cw->digitalWrite(a);
 	ccw->digitalWrite(b);
@@ -65,6 +64,32 @@ void Omni::drive(float radian,float power,float spin){
 	motorPower[1] = -motorPower[1];
 	motorPower[2] = -motorPower[2];
 
+
+	/*if(-M_PI/6 <= radian && radian <= M_PI/6){		//–Ú•W‰ñ“]”ŒvŽZ
+		motorPower[FRONT] = -1.0;
+		motorPower[RIGHT] =  2 - (4 / (tan(radian + M_PI/6) + 2));
+		motorPower[LEFT]  =  2 + (4 / (tan(radian - M_PI/6) - 2));
+	}else if(M_PI/6 <= radian && radian <= M_PI/2){
+		motorPower[FRONT] = -2 - (4 / (tan(radian + M_PI/2) - 2));
+		motorPower[RIGHT] = 1.0;
+		motorPower[LEFT]  = -2 + (4 / (tan(radian - M_PI/6) + 2));
+	}else if(M_PI/2 <= radian && radian <= (5*M_PI)/6){
+		motorPower[FRONT] =  2 - (4 / (tan(radian + M_PI/2) + 2));
+		motorPower[RIGHT] = -2 - (4 / (tan(radian + M_PI/6) - 2));
+		motorPower[LEFT]  = 1.0;
+	}else if((5*M_PI)/6 <= radian && radian <= (7*M_PI)/6){
+		motorPower[FRONT] = +1.0;
+		motorPower[RIGHT] = -2 + (4 / (tan(radian + M_PI/6) + 2));
+		motorPower[LEFT]  = -2 - (4 / (tan(radian - M_PI/6) - 2));
+	}else if((7*M_PI)/6 <= radian && radian <= (9*M_PI)/6){
+		motorPower[FRONT] =  2 + (4 / (tan(radian + M_PI/2) - 2));
+		motorPower[RIGHT] = -1.0;
+		motorPower[LEFT]  =  2 - (4 / (tan(radian - M_PI/6) + 2));
+	}else if((9*M_PI)/6 <= radian && radian <= (11*M_PI)/6){
+		motorPower[FRONT] = -2 + (4 / (tan(radian + M_PI/2) + 2));
+		motorPower[RIGHT] = -2 - (4 / (tan(radian + M_PI/6) - 2));
+		motorPower[LEFT]  =  1.0;
+	}*/
 
 	motorPower[0] *= power;
 	motorPower[1] *= power;

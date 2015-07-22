@@ -14,20 +14,20 @@
 #define RIGHT 0
 #define LEFT 2
 
-#define MotorMax0 3650
-#define MotorMax1 4150
-#define MotorMax2 4050
+#define MotorMax0 6000
+#define MotorMax1 5500
+#define MotorMax2 6200
 
-#define PowToRev 4150
+#define PowToRev 6200
 
-#define KF0 0.21
-#define SF0 0.41
+#define KF0 0.12
+#define SF0 0.18
 
 #define KF1 0.08
 #define SF1 0.18
 
-#define KF2 0.08
-#define SF2 0.23
+#define KF2 0.05
+#define SF2 0.14
 
 #define ARM_P 0
 #define ARM_I 1
@@ -36,8 +36,6 @@
 #define ARM_GAIN_P 0.1
 #define ARM_GAIN_I 0.1
 #define ARM_GAIN_D 0.1
-
-#define MOTOR_GAIN 0.8
 
 
 
@@ -63,7 +61,6 @@ public:
 private:
 
 };
-
 
 class Omni {
 public:

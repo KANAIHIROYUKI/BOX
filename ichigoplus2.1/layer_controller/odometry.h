@@ -31,7 +31,6 @@ class OmniOdometry
     float radianAbs;    //ロボットの角度
     int radianDelta;
     int radianOld;
-    int radianCorrection=0;
     float length=30;    //中心からエンコーダまでの距離
 
 
@@ -48,7 +47,6 @@ class OmniOdometry
     int encTest[3];
     int enc[3];
     int encOld[3];
-    int encOffSet[3];
 
 
     OmniOdometry(float wheelLength,Enc0 &enc0,Enc1 &enc1,Enc2 &enc2){
@@ -73,7 +71,6 @@ class OmniOdometry
     };
 
     void update();
-    void reset();
 
 
 };

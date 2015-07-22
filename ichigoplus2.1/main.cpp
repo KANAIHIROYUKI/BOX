@@ -19,32 +19,35 @@
 
 void control(float targetX,float targetY,float targetRad);
 
-#define GAIN_P 0.5
+#define GAIN_P 0.04
+
 #define GAIN_I 0
-#define GAIN_D 0.1
+#define GAIN_D 2.0
 
 #define C 0
 #define P 1
 #define I 2
 #define D 3
 
-#define GAIN_SPIN_D 1
+#define GAIN_SPIN_D 0
 
-#define TargetQuantity 7
+#define TargetQuantity 15
+
+void waitbr(int t);
 
 int main(void)
 {
 	float spin=0,radianDif,distanceX,distanceY;
-	float targetY[] = {0,   0,250,   0,-250,  0,0,0};
-	float targetX[] = {0,-250,   0,250,   0,-250,0,0};
+	float targetY[] = {0,350,350,310,240,200,200,200, 40,350,350,330,280,230,210,210, 40};
+	float targetX[] = {0,  0,100,160,160,160,100,  0,220,240,340,400,420,400,330,230,220};
 	float targetRadian=0;
  	float radian = 0;
  	float power;
 	float radianOld;
 
-	float v_radian,v_slope,v_distance,c_radius = 50,d_radian,q_radian,d_r;
+	float v_radian,v_slope,v_distance,c_radius = 100,d_radian,q_radian,d_r;
 
-	int cnt=0;
+	int cnt=0,buzzerCnt = 0,spinCnt;
 	int flag[3],testMode,swFlag;
 
 
@@ -92,7 +95,9 @@ int main(void)
 	led3.setupDigitalOut();
 	led3.digitalHigh();
 
-	wait(500);
+	Buzzer bz;
+	bz.setupPwmOut(10000,0);
+
 	Enc0 enc0;
 	Enc1 enc1;
 	Enc2 enc2;
@@ -128,18 +133,19 @@ int main(void)
 	OmniOdometry odm(82.5,enc0,enc1,enc2);
 
 
-
 	while(1){
 		swFlag = 1;
 		testMode = 0;
 		cnt=1;
 		serial.printf("MOTOR TEST \n\r SW1 and SW3 : select  SW2 : START\n\r");
+		omni.drive(0,0,0);
 		wait(100);
+		bz.pwmWrite(0);
 		while(1){
 
 			if(sw1.digitalRead() == 0){
 				while(sw1.digitalRead() == 0);
-				if(testMode < 5)testMode++;
+				if(testMode < 6)testMode++;
 				swFlag = 1;
 			}
 			if(sw3.digitalRead() == 0){
@@ -151,10 +157,7 @@ int main(void)
 				while(sw2.digitalRead() == 0);
 				break;
 			}
-			/*if(sw0.digitalRead() == 0){
-				testMode = 10;
-				break;
-			}*/
+
 			led0.digitalWrite(testMode & 1);
 			led1.digitalWrite((testMode & 2) >> 1);
 			led2.digitalWrite((testMode & 4) >> 2);
@@ -181,28 +184,31 @@ int main(void)
 				case 5:
 					serial.printf("MOTOR POSITION CHECK\n\r");
 					break;
+				case 6:
+					serial.printf("DEGREE CONTROL\n\r");
 				}
-				wait(200);
+				bz.pwmWrite(0.5);
+				wait(80);
+				bz.pwmWrite(0);
 			}
 		}
 
 
 		switch(testMode){
-		case 0:
-			odm.update();
-			for(int i=0;i<=TargetQuantity;i++){
-				targetX[i]+=odm.integralX;
-				targetY[i]+=odm.integralY;
-				serial.printf("X= %f,Y= %f\n\r",targetX[i],targetY[i]);
-			}
-			targetRadian += odm.radianAbs;
 
+		case 0:
+			odm.reset();
+			odm.update();
 			while(1){
 				odm.update();
+
+				/*targetRadian += M_PI/500;
+				if(targetRadian > M_PI)targetRadian-=M_PI*2;*/
+
 				distanceX = targetX[cnt] - odm.integralX;
 				distanceY = targetY[cnt] - odm.integralY;
 
-				if(sqrt(distanceX*distanceX +distanceY*distanceY) < c_radius){//目標地点が近ければ仮想軌道追尾はしない
+				if(sqrt(distanceX*distanceX + distanceY*distanceY) < c_radius){//目標地点が近ければ仮想軌道追尾はしない
 			        d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
 			        serial.printf(" CLOSE");
 			    }else{
@@ -231,6 +237,7 @@ int main(void)
 			        if(v_distance < c_radius){
 			            v_radian = atan2((targetY[cnt] - targetY[cnt-1]),(targetX[cnt] - targetX[cnt-1]));
 			            q_radian = atan2((odm.integralY - targetY[cnt]),(odm.integralX - targetX[cnt])) - v_radian;
+
 			            d_radian = asin(v_distance/c_radius);
 			            if(q_radian < 0)q_radian+=2*M_PI;
 			            if(q_radian > 2*M_PI)q_radian -= 2*M_PI;
@@ -261,24 +268,36 @@ int main(void)
 			        }
 			    }
 				if(d_radian < 0)d_radian+=2*M_PI;
-				serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian);
-
+				serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
 
 				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10){
 					cnt++;
 					serial.printf("NEXT POINT");
+					buzzerCnt = 10;
 				}
 				if(cnt>TargetQuantity){
 					cnt--;
-					omni.drive(0,0,0);
-					wait(100);
-					break;
+					//omni.drive(0,0,0);
+					//wait(100);
+					//break;
 				}
 
+				if(buzzerCnt > 0){
+					buzzerCnt--;
+					bz.pwmWrite(0.5);
+				}else{
+					bz.pwmWrite(0);
+				}
 
-				power = sqrt(distanceX*distanceX + distanceY*distanceY)*0.01;
+				power = sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P + (sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P - power)*GAIN_D;
 				if(power > 1.0)power = 1.0;
 
+
+				if(odm.radianAbs > M_PI){
+					radianDif = odm.radianAbs - 2*M_PI;
+				}else{
+					radianDif = odm.radianAbs;
+				}
 				radianDif = odm.radianAbs - targetRadian;
 				radianOld = radian;
 				if(radianDif < M_PI){
@@ -286,13 +305,13 @@ int main(void)
 				}else{
 					radian = radianDif - 2*M_PI;
 				}
-				spin = radian*radian*radian*radian*radian*2000 + (radianOld - radian)*GAIN_SPIN_D;
-
+				spin = radian*radian*radian*radian*radian*radian*radian*10000 + (radian - radianOld)*GAIN_SPIN_D;
 
 				if(spin<-3.0)spin=-3.0;
 				if(spin>3.0)spin=3.0;
 
-				omni.drive(d_radian - radianDif,power,-spin);
+				//serial.printf("\n\r%f,%f,%f,",d_radian,radianDif,d_radian + radianDif);
+				omni.drive(d_radian - odm.radianAbs,power,-spin);
 				wait(10);
 				if(sw0.digitalRead() == 0){
 					while(sw0.digitalRead() == 0);
@@ -441,6 +460,7 @@ int main(void)
 				wait(50);
 				if(sw0.digitalRead() == 0){
 					while(sw0.digitalRead() == 0);
+
 					break;
 				}
 			}
@@ -453,6 +473,52 @@ int main(void)
 			wait(1000);
 			motor2.drive(1.0,1,0);
 			wait(1000);
+			break;
+
+		case 6:
+			spinCnt=0;
+			targetRadian = 0;
+			odm.reset();
+			while(1){
+				odm.update();
+				serial.printf("%f,%f\n\r",odm.radianAbs,spin);
+				spinCnt++;
+
+				if(spinCnt == 100){
+					targetRadian = M_PI/2;
+				}
+				if(spinCnt == 200){
+					targetRadian = M_PI;
+				}
+				if(spinCnt == 300){
+					targetRadian = 3*M_PI/2;
+				}
+				if(spinCnt == 400){
+					targetRadian = 0;
+					spinCnt = 0;
+				}
+
+				radianDif = odm.radianAbs - targetRadian;
+				radianOld = radian;
+				if(radianDif < M_PI){
+					radian = radianDif;
+				}else{
+					radian = radianDif - 2*M_PI;
+				}
+				spin = radian*radian*radian*radian*radian*radian*radian*10000 + (radian - radianOld)*GAIN_SPIN_D;
+
+				if(spin<-3.0)spin=-3.0;
+				if(spin>3.0)spin=3.0;
+
+				omni.drive(0,0,-spin);
+
+				wait(10);
+				if(sw0.digitalRead() == 0){
+					while(sw0.digitalRead() == 0);
+					break;
+				}
+			}
+
 			break;
 
 
