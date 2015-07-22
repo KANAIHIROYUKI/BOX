@@ -230,9 +230,9 @@
     <File name="layer_driver/board/error.c" path="layer_driver/board/error.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="layer_controller/blink.hpp" path="layer_controller/blink.hpp" type="1"/>
-    <File name="layer_driver/base/software_reset.h" path="layer_driver/base/software_reset.h" type="1"/>
     <File name="main.cpp" path="main.cpp" type="1"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.h" type="1"/>
+    <File name="layer_driver/base/software_reset.h" path="layer_driver/base/software_reset.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/unlink.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/unlink.html" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_rtc.h" path="cmsis_lib/include/stm32f4xx_rtc.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg" path="" type="2"/>
@@ -256,10 +256,10 @@
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.h" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_desc.h" type="1"/>
     <File name="layer_driver/base/mcutime.c" path="layer_driver/base/mcutime.c" type="1"/>
-    <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
-    <File name="layer_driver/board/stm32f4_config/config_pwm.h" path="layer_driver/board/stm32f4_config/config_pwm.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_pwm.h" path="layer_driver/board/stm32f4_config/config_pwm.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/config_iwdg.c" path="layer_driver/board/stm32f4_config/config_iwdg.c" type="1"/>
+    <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub" path="" type="2"/>
     <File name="cmsis_lib/source/stm32f4xx_crc.c" path="cmsis_lib/source/stm32f4xx_crc.c" type="1"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.c" path="layer_driver/board/stm32f4_config/usb/usb_conf/usb_bsp.c" type="1"/>

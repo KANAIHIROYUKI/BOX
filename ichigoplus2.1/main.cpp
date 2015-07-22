@@ -17,8 +17,6 @@
 #include "odometry.h"
 //circuit
 
-void control(float targetX,float targetY,float targetRad);
-
 #define GAIN_P 0.04
 
 #define GAIN_I 0
@@ -32,11 +30,23 @@ void control(float targetX,float targetY,float targetRad);
 #define GAIN_SPIN_D 0
 
 #define TargetQuantity 15
+#define ControlCycle 10
 
-void waitbr(int t);
+int waitBreak(int waitTime){
+	Sw0 sw0;
+	sw0.setupDigitalIn();
+	waitTime += millis();
+	while(waitTime > millis()){
+		if(sw0.digitalRead() == 0){
+			return 1;
+		}
+	}
+	return 0;
+}
 
 int main(void)
 {
+	wait(10);
 	float spin=0,radianDif,distanceX,distanceY;
 	float targetY[] = {0,350,350,310,240,200,200,200, 40,350,350,330,280,230,210,210, 40};
 	float targetX[] = {0,  0,100,160,160,160,100,  0,220,240,340,400,420,400,330,230,220};
@@ -50,7 +60,7 @@ int main(void)
 	int cnt=0,buzzerCnt = 0,spinCnt;
 	int flag[3],testMode,swFlag;
 
-
+	int cycleTime;
 
 	Serial0 serial;
 	serial.setup(115200);
@@ -138,8 +148,9 @@ int main(void)
 		testMode = 0;
 		cnt=1;
 		serial.printf("MOTOR TEST \n\r SW1 and SW3 : select  SW2 : START\n\r");
-		omni.drive(0,0,0);
-		wait(100);
+		omni.request(0,0,0);
+		omni.drive();
+		waitBreak(100);
 		bz.pwmWrite(0);
 		while(1){
 
@@ -188,7 +199,7 @@ int main(void)
 					serial.printf("DEGREE CONTROL\n\r");
 				}
 				bz.pwmWrite(0.5);
-				wait(80);
+				waitBreak(80);
 				bz.pwmWrite(0);
 			}
 		}
@@ -198,7 +209,7 @@ int main(void)
 		case 0:
 			odm.reset();
 			odm.update();
-			while(1){
+			while(sw0.digitalRead()){
 				odm.update();
 
 				/*targetRadian += M_PI/500;
@@ -267,7 +278,6 @@ int main(void)
 			        }
 			    }
 				if(d_radian < 0)d_radian+=2*M_PI;
-				serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
 
 				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10){
 					cnt++;
@@ -310,12 +320,17 @@ int main(void)
 				if(spin>3.0)spin=3.0;
 
 				//serial.printf("\n\r%f,%f,%f,",d_radian,radianDif,d_radian + radianDif);
-				omni.drive(d_radian - odm.radianAbs,power,-spin);
-				wait(10);
+				if(millis() - cycleTime > ControlCycle){
+					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
+					omni.request(d_radian - odm.radianAbs,power,-spin);
+					omni.drive();
+					cycleTime = millis();
+				}
 				if(sw0.digitalRead() == 0){
 					while(sw0.digitalRead() == 0);
-					omni.drive(0,0,0);
-					wait(100);
+					omni.request(0,0,0);
+					omni.drive();
+					waitBreak(100);
 					break;
 				}
 			}
@@ -337,7 +352,7 @@ int main(void)
 					while(sw0.digitalRead() == 0);
 					break;
 				}
-				wait(100);
+				waitBreak(100);
 			}
 
 			break;
@@ -346,21 +361,21 @@ int main(void)
 			motor0.drive(1.0,1,0);
 			motor1.drive(1.0,1,0);
 			motor2.drive(1.0,1,0);
-			wait(1000);
+			waitBreak(1000);
 			encOld0 = enc0.count();
 			encOld1 = enc1.count();
 			encOld2 = enc2.count();
-			wait(10000);
+			waitBreak(10000);
 			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld0,enc1.count() - encOld1,enc2.count() - encOld2);
 			serial.printf("INVERSE");
 			motor0.drive(1.0,0,1);
 			motor1.drive(1.0,0,1);
 			motor2.drive(1.0,0,1);
-			wait(1000);
+			waitBreak(1000);
 			encOld0 = enc0.count();
 			encOld1 = enc1.count();
 			encOld2 = enc2.count();
-			wait(10000);
+			waitBreak(10000);
 			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld0,enc1.count() - encOld1,enc2.count() - encOld2);
 			motor0.drive(0,1,0);
 			motor1.drive(0,1,0);
@@ -391,13 +406,13 @@ int main(void)
 					motor0.drive(0.5,1,0);
 					motor1.drive(0.5,1,0);
 					motor2.drive(0.5,1,0);
-					wait(1000);
+					waitBreak(1000);
 					break;
 				}
 				encOld0 = enc0.count();
 				encOld1 = enc1.count();
 				encOld2 = enc2.count();
-				wait(500);
+				waitBreak(500);
 			}
 			serial.printf("Deceleration\n\r");
 			for(float i = 0.5;i>0.0;i-=0.01){
@@ -425,13 +440,14 @@ int main(void)
 					motor2.drive(0,1,0);
 					break;
 				}
-				wait(500);
+				waitBreak(500);
 			}
 			break;
 
 		case 4:
 			for(float rad=0;rad<2*M_PI;rad+=(2*M_PI)/180){		//‰~Œ`ˆÚ“®
-				omni.drive(rad,1.0,spin);
+				omni.request(rad,1.0,spin);
+				omni.drive();
 				odm.update();
 
 				if(odm.radianAbs < M_PI){
@@ -453,7 +469,7 @@ int main(void)
 				}
 				//serial.printf("%f,%f,%f,%f,%d,%d,%d\r\n",rad,omni.motorPower[0],omni.motorPower[1],omni.motorPower[2],omni.encCnt[0],omni.encCnt[1],omni.encCnt[2]);
 				serial.printf("%f,%f,%f,%f\n\r",spin,radian,odm.integralX,odm.integralY);
-				wait(50);
+				waitBreak(50);
 				if(sw0.digitalRead() == 0){
 					while(sw0.digitalRead() == 0);
 
@@ -464,18 +480,18 @@ int main(void)
 
 		case 5:
 			motor0.drive(1.0,1,0);
-			wait(1000);
+			waitBreak(1000);
 			motor1.drive(1.0,1,0);
-			wait(1000);
+			waitBreak(1000);
 			motor2.drive(1.0,1,0);
-			wait(1000);
+			waitBreak(1000);
 			break;
 
 		case 6:
 			spinCnt=0;
 			targetRadian = 0;
 			odm.reset();
-			while(1){
+			while(sw0.digitalRead()){
 				odm.update();
 				serial.printf("%f,%f\n\r",odm.radianAbs,spin);
 				spinCnt++;
@@ -506,8 +522,9 @@ int main(void)
 				if(spin<-3.0)spin=-3.0;
 				if(spin>3.0)spin=3.0;
 
-				omni.drive(0,0,-spin);
+				omni.request(0,0,-spin);
 
+				omni.drive();
 				wait(10);
 				if(sw0.digitalRead() == 0){
 					while(sw0.digitalRead() == 0);

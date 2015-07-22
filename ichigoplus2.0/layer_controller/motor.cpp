@@ -11,7 +11,7 @@ void Motor::drive(float p,int a,int b){
 
 
 
-void Omni::drive(float radian,float power,float spin){
+void Omni::request(float radian,float power,float spin){
 	static int encCntOld[3];
 	static int encTimeOld;
 
@@ -85,7 +85,7 @@ void Omni::drive(float radian,float power,float spin){
 
 		if(ratioMax > 1.0){//弱いモーターが限度を超えた場合
 			if(ratio[0] == ratioMax){
-				ratio[0] == 1.0;
+				ratio[0] = 1.0;
 				ratio[1] = ratioMax;
 				ratio[2] = ratioMax;
 			}
@@ -190,7 +190,9 @@ void Omni::drive(float radian,float power,float spin){
 	}else if(motorPower[2] < -1.0){
 		motorPower[2] = -1.0;
 	}
+};
 
+void Omni::drive(){
 	if(motorPower[0] >= 0){//RIGHT
 		mt0->drive(motorPower[0],1,0);
 	}else{
@@ -208,9 +210,12 @@ void Omni::drive(float radian,float power,float spin){
 	}else{
 		mt2->drive(-motorPower[2],0,1);
 	}
-};
+}
 
 int Arm::move(float targetPosition){
+	//float position=0;
+	float Pos[3];
+
 	Pos[ARM_D] = Pos[ARM_P] - (targetPosition - a0->analogRead());
 	Pos[ARM_P] = targetPosition - a0->analogRead();
 	Pos[ARM_I] += Pos[ARM_P];

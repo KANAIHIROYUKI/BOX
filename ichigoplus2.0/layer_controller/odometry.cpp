@@ -1,6 +1,8 @@
 #include "odometry.h"
 
 
+
+
 void OmniOdometry::update(){
     radianOrg = enc0->count() + enc1->count() + enc2->count() + radianCorrection  - encOffSet[0]  - encOffSet[1]  - encOffSet[2];	//角度生の値(累積による誤差が発生しない)､負なのは設定とエンコーダの回転が逆なため
     radianAbs = (radianOrg*M_PI)/(15*length);	//弧度法に直す
@@ -30,7 +32,7 @@ void OmniOdometry::update(){
     integralX = cumulativeX + X*cos(radianAbs) - Y*sin(radianAbs);
     integralY = cumulativeY + X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
 
-    if(encCntDif > 30 && encCntDif <= 100|| radianDelta - radianOrg > 10 || radianDelta - radianOrg < -10){						//前回計算時との差が一定以上に達したら計算
+    if((encCntDif > 30 && encCntDif <= 100) || radianDelta - radianOrg > 10 || radianDelta - radianOrg < -10){						//前回計算時との差が一定以上に達したら計算
     	radianDelta = radianOrg;
         radian = atan2(Y,X);
         cumulativeX += X*cos(radianAbs) - Y*sin(radianAbs);

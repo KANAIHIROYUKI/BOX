@@ -102,7 +102,8 @@ public:
 		enc2.setup();
 	};
 
-	void drive(float radian,float power,float spin);
+	void request(float radian,float power,float spin);
+	void drive();
 	float control(float targetX,float targetY,float targetRad);
 
 };
@@ -114,9 +115,6 @@ public:
 
 	Motor *mt3;
 	A0 *a0;
-
-	float position=0;
-	static float Pos[3];
 
 	Arm(Motor &mt3,A0 &a0){
 		this->mt3 = &mt3;
