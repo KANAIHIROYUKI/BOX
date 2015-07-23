@@ -15,43 +15,60 @@
 <part id="3"/>
 <part id="2"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/main.cpp" title="main.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/main.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="646" selectionTopPixel="1140"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="985" selectionTopPixel="1940"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.cpp" partName="motor.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/motor.cpp" title="motor.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/motor.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/motor.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="185" selectionTopPixel="88"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="350" selectionTopPixel="100"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="odometry.cpp" partName="odometry.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/odometry.cpp" title="odometry.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/odometry.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/odometry.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="25" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="432" selectionTopPixel="30"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" partName="motor.h" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/motor.h" title="motor.h" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/motor.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/motor.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1624" selectionTopPixel="1260"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1653" selectionTopPixel="1301"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="odometry.h" partName="odometry.h" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/odometry.h" title="odometry.h" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.0/layer_controller/odometry.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_controller/odometry.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="267" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="987" selectionTopPixel="572"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.cpp" partName="encoder.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/base/encoder.cpp" title="encoder.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/base/encoder.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/encoder.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.hpp" partName="encoder.hpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/base/encoder.hpp" title="encoder.hpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/base/encoder.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/encoder.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" partName="pin.hpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/board/pin.hpp" title="pin.hpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.1/layer_driver/board/pin.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/pin.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="208" selectionTopPixel="240"/>
 </editor>
 </editors>
 <views>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="35">
 <expanded>
 <element path="/ichigoplus"/>
 <element path="/ichigoplus/layer_controller"/>
 <element path="/ichigoplus/layer_driver"/>
 <element path="/ichigoplus/layer_driver/base"/>
 <element path="/ichigoplus/layer_driver/board"/>
+<element path="/ichigoplus/layer_driver/board/stm32f4_config"/>
+<element path="/ichigoplus/syscalls"/>
 </expanded>
 <selection>
-<element path="/ichigoplus/layer_driver/base/encoder.cpp"/>
+<element path="/ichigoplus/layer_driver/base/analog.cpp"/>
 </selection>
 </viewState>
 </view>
@@ -147,164 +164,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/odometry.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/odometry.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/odometry.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/motor.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_controller/odometry.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/encoder.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/encoder.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/pin.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/digital.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/analog.cpp"/>
 </editors>
-<item historyLabel="motor.cpp" index="3">
-<position info="not_deleted" x="2689" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="1253" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="227" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="355" y="0"/>
 </item>
-<item historyLabel="motor.h" index="2">
-<position info="not_deleted" x="1750" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="663" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="3">
-<position info="not_deleted" x="5505" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="1818" y="0"/>
 </item>
-<item historyLabel="odometry.cpp" index="0">
-<position info="not_deleted" x="556" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="7970" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="1253" y="0"/>
 </item>
 <item historyLabel="motor.h" index="2">
-<position info="not_deleted" x="1750" y="0"/>
+<position info="not_deleted" x="1653" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="7970" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="290" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="4">
-<position info="not_deleted" x="5531" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="822" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="12929" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="290" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="4">
-<position info="not_deleted" x="5531" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="663" y="0"/>
 </item>
-<item historyLabel="motor.h" index="5">
-<position info="not_deleted" x="1768" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position/>
 </item>
-<item historyLabel="odometry.cpp" index="6">
-<position info="not_deleted" x="560" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="29" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="790" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="2306" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="355" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="4">
-<position info="not_deleted" x="5531" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8044" y="0"/>
 </item>
-<item historyLabel="motor.h" index="5">
-<position info="not_deleted" x="1768" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="355" y="0"/>
 </item>
-<item historyLabel="motor.h" index="5">
-<position info="not_deleted" x="1624" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="100" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="4">
-<position info="not_deleted" x="5531" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8044" y="0"/>
 </item>
-<item historyLabel="motor.cpp" index="4">
-<position info="not_deleted" x="185" y="7"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="290" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="2306" y="0"/>
+<item historyLabel="motor.h" index="2">
+<position info="not_deleted" x="1653" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="2464" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="1639" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="2462" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="822" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="8445" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="419" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="13671" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="987" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="11886" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="432" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="8599" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="506" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="790" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="229" y="0"/>
 </item>
-<item historyLabel="odometry.cpp" index="6">
-<position info="not_deleted" x="779" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="506" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="430" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8345" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="8599" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8436" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="950" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="552" y="94"/>
 </item>
-<item historyLabel="motor.h" index="5">
-<position info="not_deleted" x="1624" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8294" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="950" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="382" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="8150" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8336" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="307" y="0"/>
+<item historyLabel="motor.cpp" index="3">
+<position info="not_deleted" x="350" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="8150" y="0"/>
+<item historyLabel="odometry.h" index="1">
+<position info="not_deleted" x="987" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="1726" y="0"/>
+<item historyLabel="encoder.cpp" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="613" y="0"/>
+<item historyLabel="encoder.hpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="motor.h" index="5">
-<position info="not_deleted" x="1624" y="0"/>
+<item historyLabel="odometry.cpp" index="4">
+<position info="not_deleted" x="432" y="0"/>
 </item>
-<item historyLabel="odometry.cpp" index="6">
-<position info="not_deleted" x="25" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="8336" y="0"/>
 </item>
-<item historyLabel="odometry.h" index="7">
-<position info="not_deleted" x="267" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="985" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="613" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="453" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2045" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="512" y="0"/>
+<item historyLabel="pin.hpp" index="7">
+<position info="not_deleted" x="208" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="541" y="0"/>
+<item historyLabel="digital.cpp" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="573" y="0"/>
+<item historyLabel="analog.cpp" index="9">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="490" y="0"/>
+<item historyLabel="digital.cpp" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="488" y="0"/>
+<item historyLabel="analog.cpp" index="9">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="646" y="0"/>
+<item historyLabel="pin.hpp" index="7">
+<position info="not_deleted" x="208" y="0"/>
+</item>
+<item active="true" historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2034" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -313,6 +332,21 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="analog.cpp" tooltip="ichigoplus/layer_driver/base/analog.cpp">
+<persistable path="/ichigoplus/layer_driver/base/analog.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="digital.cpp" tooltip="ichigoplus/layer_driver/base/digital.cpp">
+<persistable path="/ichigoplus/layer_driver/base/digital.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" tooltip="ichigoplus/layer_driver/board/pin.hpp">
+<persistable path="/ichigoplus/layer_driver/board/pin.hpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.hpp" tooltip="ichigoplus/layer_driver/base/encoder.hpp">
+<persistable path="/ichigoplus/layer_driver/base/encoder.hpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.cpp" tooltip="ichigoplus/layer_driver/base/encoder.cpp">
+<persistable path="/ichigoplus/layer_driver/base/encoder.cpp"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="utilplus.cpp" tooltip="ichigoplus/layer_driver/base/utilplus.cpp">
 <persistable path="/ichigoplus/layer_driver/base/utilplus.cpp"/>
 </file>
@@ -324,12 +358,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" tooltip="ichigoplus/layer_controller/layer_driver/base/util.c">
 <persistable path="/ichigoplus/layer_controller/layer_driver/base/util.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.cpp" tooltip="ichigoplus/layer_driver/base/encoder.cpp">
-<persistable path="/ichigoplus/layer_driver/base/encoder.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.hpp" tooltip="ichigoplus/layer_driver/base/encoder.hpp">
-<persistable path="/ichigoplus/layer_driver/base/encoder.hpp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="odometry.h" tooltip="ichigoplus/layer_controller/odometry.h">
 <persistable path="/ichigoplus/layer_controller/odometry.h"/>
@@ -346,17 +374,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mcutime.c" tooltip="ichigoplus/layer_driver/base/mcutime.c">
 <persistable path="/ichigoplus/layer_driver/base/mcutime.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" tooltip="ichigoplus/layer_driver/board/pin.hpp">
-<persistable path="/ichigoplus/layer_driver/board/pin.hpp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="blink.hpp" tooltip="ichigoplus/layer_controller/blink.hpp">
 <persistable path="/ichigoplus/layer_controller/blink.hpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="blink.cpp" tooltip="ichigoplus/layer_controller/blink.cpp">
-<persistable path="/ichigoplus/layer_controller/blink.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ichigoplus.coproj" tooltip="C:\ichigoplus2.0\ichigoplus.coproj">
-<persistable uri="file:/C:/ichigoplus2.0/ichigoplus.coproj"/>
 </file>
 </mruList>
 </workbench>

@@ -17,9 +17,8 @@ int abs(int a);
 
 
 
-class OmniOdometry
-{
-    public:
+class OmniOdometry{
+public:
 
     float integralX;
     float integralY;  //現在座標
@@ -33,20 +32,17 @@ class OmniOdometry
     float radianAbs;    //ロボットの角度
     int radianDelta;
     int radianOld;
-    int radianCorrection;
+    //int radianCorrection;
     float length;    //中心からエンコーダまでの距離
-
 
     int encCntDif;   //エンコーダの前回の値
     int radianOrg;   //機体角度､エンコーダ生の値
 
     int encTime;
 
-
     Enc0 *enc0;
     Enc1 *enc1;
     Enc2 *enc2;
-
 
     int encTest[3];
     int enc[3];
@@ -55,22 +51,8 @@ class OmniOdometry
 
 
     OmniOdometry(float wheelLength,Enc0 &enc0,Enc1 &enc1,Enc2 &enc2){
-    	float integralX = 0;
-    	float integralY = 0;
-    	float cumulativeX = 0;
-    	float cumulativeY = 0;
-    	float X=0;
-    	float Y=0;
-    	float radian = 0;
-    	float degree = 0;
-    	float radianAbs = 0;
-    	int radianDelta = 0;
-    	int radianOld = 0;
-    	int radianCorrection = 0;
-    	float  length = wheelLength;
-    	int  encCntDif = 0;
-    	int  radianOrg = 0;
 
+    	length = wheelLength;
     	this->enc0 = &enc0;
     	this->enc1 = &enc1;
     	this->enc2 = &enc2;
@@ -84,10 +66,6 @@ class OmniOdometry
     	encOld[2] = enc2.count();
 
     	encTime = micros();
-
-
-
-        printf("%f\n",length);
     };
 
     void update();

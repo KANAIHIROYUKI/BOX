@@ -14,20 +14,20 @@
 #define RIGHT 0
 #define LEFT 2
 
-#define MotorMax0 3650
-#define MotorMax1 4150
-#define MotorMax2 4050
+#define MotorMax0 5400
+#define MotorMax1 5300
+#define MotorMax2 5300
 
-#define PowToRev 4150
+#define PowToRev 5400
 
-#define KF0 0.21
-#define SF0 0.41
+#define KF0 0.12
+#define SF0 0.39
 
-#define KF1 0.08
-#define SF1 0.18
+#define KF1 0.05
+#define SF1 0.12
 
-#define KF2 0.08
-#define SF2 0.23
+#define KF2 0.04
+#define SF2 0.12
 
 #define ARM_P 0
 #define ARM_I 1
@@ -37,7 +37,7 @@
 #define ARM_GAIN_I 0.1
 #define ARM_GAIN_D 0.1
 
-#define MOTOR_GAIN 0.8
+#define MOTOR_GAIN 1.0
 
 
 
@@ -104,7 +104,8 @@ public:
 
 	void request(float radian,float power,float spin);
 	void drive();
-	float control(float targetX,float targetY,float targetRad);
+	//float control(float targetX,float targetY,float targetRad);
+	void stop();
 
 };
 

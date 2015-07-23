@@ -2,7 +2,6 @@
 
 
 void Motor::drive(float p,int a,int b){
-	p*=MOTOR_GAIN;
 	p = 1.0 - p;
 	cw->digitalWrite(a);
 	ccw->digitalWrite(b);
@@ -14,6 +13,7 @@ void Motor::drive(float p,int a,int b){
 void Omni::request(float radian,float power,float spin){
 	static int encCntOld[3];
 	static int encTimeOld;
+	power *= MOTOR_GAIN;
 
 	encTime = millis() - encTimeOld;
 	encTimeOld = millis();
@@ -211,6 +211,12 @@ void Omni::drive(){
 		mt2->drive(-motorPower[2],0,1);
 	}
 }
+
+void Omni::stop(){
+	mt0->drive(0,0,0);
+	mt1->drive(0,0,0);
+	mt2->drive(0,0,0);
+};
 
 int Arm::move(float targetPosition){
 	//float position=0;

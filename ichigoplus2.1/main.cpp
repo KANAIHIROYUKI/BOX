@@ -17,15 +17,16 @@
 #include "odometry.h"
 //circuit
 
-#define GAIN_P 0.04
-
+#define GAIN_P 0.06
 #define GAIN_I 0
-#define GAIN_D 2.0
+#define GAIN_D 4.0
 
 #define C 0
 #define P 1
 #define I 2
 #define D 3
+
+#define ReferenceCircle 100
 
 #define GAIN_SPIN_D 0
 
@@ -46,21 +47,23 @@ int waitBreak(int waitTime){
 
 int main(void)
 {
-	wait(10);
 	float spin=0,radianDif,distanceX,distanceY;
-	float targetY[] = {0,350,350,310,240,200,200,200, 40,350,350,330,280,230,210,210, 40};
-	float targetX[] = {0,  0,100,160,160,160,100,  0,220,240,340,400,420,400,330,230,220};
+	float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};
+	float targetX[] = {0,  0, 80,160,160,160,100,  0,220,220,320,380,400,380,320,220,220};
+	//float targetX[] = {0,500,500,  0,0,250,500};
+	//float targetY[] = {0,  0,500,500,0,500,250};
+
 	float targetRadian=0;
  	float radian = 0;
  	float power;
 	float radianOld;
 
-	float v_radian,v_slope,v_distance,c_radius = 100,d_radian,q_radian,d_r;
+	float v_radian,v_slope,v_distance,c_radius = ReferenceCircle,d_radian,q_radian,d_r;
 
 	int cnt=0,buzzerCnt = 0,spinCnt;
 	int flag[3],testMode,swFlag;
 
-	int cycleTime;
+	int_least32_t cycleTime;
 
 	Serial0 serial;
 	serial.setup(115200);
@@ -108,13 +111,10 @@ int main(void)
 	Buzzer bz;
 	bz.setupPwmOut(10000,0);
 
+
 	Enc0 enc0;
 	Enc1 enc1;
 	Enc2 enc2;
-
-	enc0.setup();
-	enc1.setup();
-	enc2.setup();
 
 	Pwm0 pwm0;
 	CW0 cw0;
@@ -150,7 +150,6 @@ int main(void)
 		serial.printf("MOTOR TEST \n\r SW1 and SW3 : select  SW2 : START\n\r");
 		omni.request(0,0,0);
 		omni.drive();
-		waitBreak(100);
 		bz.pwmWrite(0);
 		while(1){
 
@@ -207,8 +206,11 @@ int main(void)
 		switch(testMode){
 
 		case 0:
+			odm.update();
 			odm.reset();
 			odm.update();
+			cycleTime = millis() + ControlCycle;
+			serial.printf("%f,%f,%f,%d,%d,%d\n\r",odm.integralX,odm.integralY,odm.radianAbs,odm.encTest[0],odm.encTest[1],odm.encTest[2]);
 			while(sw0.digitalRead()){
 				odm.update();
 
@@ -220,7 +222,7 @@ int main(void)
 
 				if(sqrt(distanceX*distanceX + distanceY*distanceY) < c_radius){//目標地点が近ければ仮想軌道追尾はしない
 			        d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
-			        serial.printf(" CLOSE");
+			        //serial.printf(" CLOSE");
 			    }else{
 			        if(targetX[cnt-1] == targetX[cnt]){
 			            v_distance = targetX[cnt] - odm.integralX;
@@ -259,22 +261,22 @@ int main(void)
 			            if(q_radian <= M_PI/2){
 			                d_radian = v_radian + d_radian;
 			                d_radian += M_PI;
-			                serial.printf(" Q1");
+			                //serial.printf(" Q1");
 			            }else if(q_radian <= M_PI){
 			                d_radian = v_radian - d_radian;
-			                serial.printf(" Q2");
+			                //serial.printf(" Q2");
 			            }else if(q_radian <= (3*M_PI)/2){
 			                d_radian = v_radian + d_radian;
-			                serial.printf(" Q3");
+			                //serial.printf(" Q3");
 			            }else{
 			                d_radian = v_radian - d_radian;
 			                d_radian += M_PI;
-			                serial.printf(" Q4");
+			                //serial.printf(" Q4");
 			            }
 			        }else{
 			            //d_radian = atan2(odm.integralY - targetY[cnt],odm.integralX - targetX[cnt]);
 			        	d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
-			            serial.printf(" V_LINE FAR");
+			            //serial.printf(" V_LINE FAR");
 			        }
 			    }
 				if(d_radian < 0)d_radian+=2*M_PI;
@@ -319,17 +321,26 @@ int main(void)
 				if(spin<-3.0)spin=-3.0;
 				if(spin>3.0)spin=3.0;
 
-				//serial.printf("\n\r%f,%f,%f,",d_radian,radianDif,d_radian + radianDif);
-				if(millis() - cycleTime > ControlCycle){
-					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
+
+				if(cycleTime < millis()){
+					cycleTime+=ControlCycle;
 					omni.request(d_radian - odm.radianAbs,power,-spin);
 					omni.drive();
-					cycleTime = millis();
+					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
+					//serial.printf("\n\r %d,%f,%f,%d,%d,%d,%f,%f,",odm.radianOrg,spin,radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],odm.integralX,odm.integralY);
 				}
+
+				//serial.printf("\n\r%f,%f,%f,",d_radian,radianDif,d_radian + radianDif);
+				/*serial.printf("%d,%d",millis(),cycleTime);
+				if(millis() >= cycleTime){
+					cycleTime += ControlCycle;
+
+
+				}*/
 				if(sw0.digitalRead() == 0){
-					while(sw0.digitalRead() == 0);
 					omni.request(0,0,0);
 					omni.drive();
+					while(sw0.digitalRead() == 0);
 					waitBreak(100);
 					break;
 				}
