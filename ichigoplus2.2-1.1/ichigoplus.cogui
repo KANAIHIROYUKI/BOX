@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench version="2.0">
+<workbenchAdvisor/>
+<window>
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.debug.ui.ExpressionView"/>
+<orientation position="512" view="org.coocox.codebugger.trace.ui.traceview"/>
+<orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
+<orientation position="512" view="org.eclipse.debug.ui.VariableView"/>
+</fastViewData>
+<perspectiveBar/>
+<page focus="true" label="Workspace - CooCox CoBuilder">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="2"/>
+<part id="1"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/main.cpp" title="main.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/main.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/main.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1938" selectionTopPixel="1532"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" partName="pin.hpp" path="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/pin.hpp" title="pin.hpp" tooltip="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/pin.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/pin.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="21289" selectionTopPixel="27196"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pin.cpp" partName="pin.cpp" path="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/pin.cpp" title="pin.cpp" tooltip="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/pin.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/pin.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="25009" selectionTopPixel="29599"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="serial.cpp" partName="serial.cpp" path="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/serial.cpp" title="serial.cpp" tooltip="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/serial.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/serial.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="681" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="serial.hpp" partName="serial.hpp" path="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/serial.hpp" title="serial.hpp" tooltip="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/serial.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/serial.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3618" selectionTopPixel="2218"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can.cpp" partName="can.cpp" path="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/can.cpp" title="can.cpp" tooltip="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/can.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/can.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="153" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can.hpp" partName="can.hpp" path="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/can.hpp" title="can.hpp" tooltip="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/can.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/can.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="946" selectionTopPixel="10"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="config_adc.h" partName="config_adc.h" path="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/stm32f4_config/config_adc.h" title="config_adc.h" tooltip="C:/Users/陽生/Downloads/ichigoplus-master/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/board/stm32f4_config/config_adc.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/board/stm32f4_config/config_adc.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="34" selectionTopPixel="60"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="util.hpp" partName="util.hpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/base/util.hpp" title="util.hpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/base/util.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/util.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="622" selectionTopPixel="90"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="utilplus.cpp" partName="utilplus.cpp" path="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/utilplus.cpp" title="utilplus.cpp" tooltip="C:/Users/VegaAltair/SourceTree/ichigoplus/ver2.2/stm32f4d verTAIKI/ichigoplus2.2-1.1/layer_driver/base/utilplus.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/base/utilplus.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can_encoder.cpp" partName="can_encoder.cpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/circuit/can_encoder.cpp" title="can_encoder.cpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/circuit/can_encoder.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/circuit/can_encoder.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can_encoder.hpp" partName="can_encoder.hpp" path="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/circuit/can_encoder.hpp" title="can_encoder.hpp" tooltip="C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/layer_driver/circuit/can_encoder.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ichigoplus/layer_driver/circuit/can_encoder.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="457" selectionTopPixel="103"/>
+</editor>
+</editors>
+<views>
+<view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="16">
+<expanded>
+<element path="/ichigoplus"/>
+<element path="/ichigoplus/layer_controller"/>
+<element path="/ichigoplus/layer_driver"/>
+<element path="/ichigoplus/layer_driver/base"/>
+<element path="/ichigoplus/layer_driver/board"/>
+<element path="/ichigoplus/layer_driver/circuit"/>
+</expanded>
+<selection>
+<element path="/ichigoplus/layer_driver/circuit/can_encoder.hpp"/>
+</selection>
+</viewState>
+</view>
+<view id="org.coocox.component.ui.ComponentView" partName="Components">
+<viewState/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
+<alwaysOnActionSet id="org.coocox.welcome.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.coocox.userspace.actionSet"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryAction"/>
+<hide_menu_item_id id="org.eclipse.jdt.ui.refactoring.menu"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.ShowDisassemblyAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showExpressionsAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showDebugAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showConsoleAction"/>
+<hide_menu_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
+<hide_menu_item_id id="org.eclipse.jdt.ui.source.menu"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showMemoryBrowserAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showVariablesAction"/>
+<hide_menu_item_id id="org.coocox.builder.ui.openProjectExplorerAction"/>
+<hide_menu_item_id id="org.coocox.codebugger.trace.actions.ShowTraceControlAction"/>
+<hide_menu_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<hide_menu_item_id id="org.coocox.codebugger.configuration.showRegistersAction"/>
+<hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<view id="org.coocox.component.ui.ComponentView"/>
+<view id="org.coocox.builder.ui.views.ProjectView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@9801f4">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.component.ui.ComponentView" label="Components"/>
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.749497" ratioLeft="745" ratioRight="249" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9801f4">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@840847" ratio="0.7887422" ratioLeft="1135" ratioRight="304" relationship="4" relative="org.eclipse.ui.internal.ViewStack@9801f4">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.14376238" ratioLeft="363" ratioRight="2162" relationship="2" relative="org.eclipse.ui.internal.ViewStack@9801f4"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@605b1e" ratio="0.71907216" ratioLeft="558" ratioRight="218" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.exampleView" label="LabelNotFound"/>
+<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
+<page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/main.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/circuit/can_encoder.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/circuit/can_encoder.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/pin.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/board/stm32f4_config/config_adc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/can.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/util.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/base/utilplus.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/main.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/circuit/can_encoder.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ichigoplus/layer_driver/circuit/can_encoder.hpp"/>
+</editors>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="can_encoder.cpp" index="2">
+<position info="not_deleted" x="110" y="0"/>
+</item>
+<item historyLabel="can_encoder.hpp" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="can_encoder.cpp" index="2">
+<position info="not_deleted" x="110" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="625" y="0"/>
+</item>
+<item historyLabel="can_encoder.cpp" index="2">
+<position info="not_deleted" x="907" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="can_encoder.cpp" index="2">
+<position info="not_deleted" x="150" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="pin.cpp" index="3">
+<position info="not_deleted" x="25009" y="9"/>
+</item>
+<item historyLabel="config_adc.h" index="4">
+<position info="not_deleted" x="321" y="9"/>
+</item>
+<item historyLabel="can.cpp" index="5">
+<position info="not_deleted" x="153" y="0"/>
+</item>
+<item historyLabel="pin.cpp" index="3">
+<position info="not_deleted" x="25009" y="9"/>
+</item>
+<item historyLabel="config_adc.h" index="4">
+<position info="not_deleted" x="321" y="9"/>
+</item>
+<item historyLabel="pin.cpp" index="3">
+<position info="not_deleted" x="25009" y="9"/>
+</item>
+<item historyLabel="config_adc.h" index="4">
+<position info="not_deleted" x="18" y="0"/>
+</item>
+<item historyLabel="pin.cpp" index="3">
+<position info="not_deleted" x="25009" y="9"/>
+</item>
+<item historyLabel="config_adc.h" index="4">
+<position info="not_deleted" x="34" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="292" y="0"/>
+</item>
+<item historyLabel="util.hpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="utilplus.cpp" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="util.hpp" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="util.hpp" index="6">
+<position info="not_deleted" x="2607" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="311" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="699" y="0"/>
+</item>
+<item historyLabel="can_encoder.cpp" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="can_encoder.hpp" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="1913" y="10"/>
+</item>
+<item historyLabel="can_encoder.hpp" index="10">
+<position info="not_deleted" x="457" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="1913" y="10"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="2005" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="1999" y="0"/>
+</item>
+<item active="true" historyLabel="main.cpp" index="8">
+<position info="not_deleted" x="1997" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="can_encoder.hpp" tooltip="ichigoplus/layer_driver/circuit/can_encoder.hpp">
+<persistable path="/ichigoplus/layer_driver/circuit/can_encoder.hpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="can_encoder.cpp" tooltip="ichigoplus/layer_driver/circuit/can_encoder.cpp">
+<persistable path="/ichigoplus/layer_driver/circuit/can_encoder.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ichigoplus.coproj" tooltip="C:\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\ichigoplus.coproj">
+<persistable uri="file:/C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/ichigoplus.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="C:\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\main.cpp">
+<persistable uri="file:/C:/Users/hiroyuki/Documents/BOX/ichigoplus2.2-1.1/main.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="analog.cpp" tooltip="ichigoplus/layer_driver/base/analog.cpp">
+<persistable path="/ichigoplus/layer_driver/base/analog.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="digital.cpp" tooltip="ichigoplus/layer_driver/base/digital.cpp">
+<persistable path="/ichigoplus/layer_driver/base/digital.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pin.hpp" tooltip="ichigoplus/layer_driver/board/pin.hpp">
+<persistable path="/ichigoplus/layer_driver/board/pin.hpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.hpp" tooltip="ichigoplus/layer_driver/base/encoder.hpp">
+<persistable path="/ichigoplus/layer_driver/base/encoder.hpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.cpp" tooltip="ichigoplus/layer_driver/base/encoder.cpp">
+<persistable path="/ichigoplus/layer_driver/base/encoder.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="utilplus.cpp" tooltip="ichigoplus/layer_driver/base/utilplus.cpp">
+<persistable path="/ichigoplus/layer_driver/base/utilplus.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.h" tooltip="ichigoplus/layer_driver/base/util.h">
+<persistable path="/ichigoplus/layer_driver/base/util.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" tooltip="ichigoplus/layer_driver/base/util.c">
+<persistable path="/ichigoplus/layer_driver/base/util.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="util.c" tooltip="ichigoplus/layer_controller/layer_driver/base/util.c">
+<persistable path="/ichigoplus/layer_controller/layer_driver/base/util.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="odometry.h" tooltip="ichigoplus/layer_controller/odometry.h">
+<persistable path="/ichigoplus/layer_controller/odometry.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.h" tooltip="ichigoplus/layer_controller/motor.h">
+<persistable path="/ichigoplus/layer_controller/motor.h"/>
+</file>
+</mruList>
+</workbench>

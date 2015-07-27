@@ -109,7 +109,8 @@ int main(void)
 	led3.digitalHigh();
 
 	Buzzer bz;
-	bz.setupPwmOut(10000,0);
+	bz.setupPwmOut(50
+			00,0);
 
 
 	Enc0 enc0;
