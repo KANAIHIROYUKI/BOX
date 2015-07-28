@@ -9,14 +9,15 @@
 #include "mcutime.h"
 #include "math.h"
 #include "encoder.hpp"
-#include "circuit/can_encoder.hpp"
+
 
 //board
 #include "pin.hpp"
-
 #include "motor.h"
 #include "odometry.h"
+
 //circuit
+#include "circuit/can_encoder.hpp"
 
 #define GAIN_P 0.06
 #define GAIN_I 0
@@ -27,6 +28,11 @@
 #define I 2
 #define D 3
 
+#define PAT_NUM 3
+#define SOUND_ENTER 1
+#define SOUND_OPERATION 0
+#define SOUND_BREAK 3
+
 #define ReferenceCircle 100
 
 #define GAIN_SPIN_D 0
@@ -34,17 +40,10 @@
 #define TargetQuantity 15
 #define ControlCycle 10
 
-int waitBreak(int waitTime){
-	Sw0 sw0;
-	sw0.setupDigitalIn();
-	waitTime += millis();
-	while(waitTime > millis()){
-		if(sw0.digitalRead() == 0){
-			return 1;
-		}
-	}
-	return 0;
-}
+
+int waitBreak(int waitTime);
+void sound(int pattern);
+
 
 int main(void)
 {
@@ -110,14 +109,29 @@ int main(void)
 	led3.digitalHigh();
 
 	Buzzer bz;
-	bz.setupPwmOut(5000,0);
+	bz.setupPwmOut(4000,0);
 
 	Can0 can;
 	can.setup();
+	CanEncoder canEnc0(can,0,5);
+	CanEncoder canEnc1(can,1,5);
+	CanEncoder canEnc2(can,2,5);
+	canEnc0.setup();
+	canEnc1.setup();
+	canEnc2.setup();
 
-	while(1){
-		//serial.printf("ENC0: %d ENC1 %d ENC2 %d",);
-	}
+	/*while(1){
+		serial.printf("ENC0: %d ENC1: %d ENC2: %d\n\r",canEnc0.count(),canEnc1.count(),canEnc2.count());
+		wait(100);
+	}*/
+	/*sound(0);
+	wait(300);
+	sound(1);
+	wait(300);
+	sound(2);
+	wait(300);
+	sound(3);
+	wait(500);*/
 
 	Enc0 enc0;
 	Enc1 enc1;
@@ -147,13 +161,14 @@ int main(void)
 	int encFlag2=0;
 
 	Omni omni(motor0,motor1,motor2,enc0,enc1,enc2);
-	OmniOdometry odm(82.5,enc0,enc1,enc2);
-
+	OmniOdometry odm(143,canEnc0,canEnc1,canEnc2);
 
 	while(1){
-		swFlag = 1;
+		while(sw0.digitalRead() == 0);
+		sound(SOUND_BREAK);
 		testMode = 0;
 		cnt=1;
+		swFlag = 1;
 		serial.printf("MOTOR TEST \n\r SW1 and SW3 : select  SW2 : START\n\r");
 		omni.request(0,0,0);
 		omni.drive();
@@ -187,28 +202,30 @@ int main(void)
 					serial.printf("COODINATE RUN\n\r");
 					break;
 				case 1:
-					serial.printf("ODOMETRY TEST\n\r");
+					serial.printf("ENC TEST\n\r");
 					break;
 				case 2:
-					serial.printf("MOTOR REVOLUTION TEST\n\r");
+					serial.printf("ODOMETRY TEST\n\r");
 					break;
 				case 3:
-					serial.printf("START/STOP PWM TEST\n\r");
+					serial.printf("MOTOR REVOLUTION TEST\n\r");
 					break;
 				case 4:
-					serial.printf("CIRCLE\n\r");
+					serial.printf("START/STOP PWM TEST\n\r");
 					break;
 				case 5:
-					serial.printf("MOTOR POSITION CHECK\n\r");
+					serial.printf("CIRCLE\n\r");
 					break;
 				case 6:
+					serial.printf("MOTOR POSITION CHECK\n\r");
+					break;
+				case 7:
 					serial.printf("DEGREE CONTROL\n\r");
 				}
-				bz.pwmWrite(0.5);
-				waitBreak(80);
-				bz.pwmWrite(0);
+				sound(SOUND_OPERATION);
 			}
 		}
+		sound(SOUND_ENTER);
 
 		switch(testMode){
 
@@ -344,38 +361,30 @@ int main(void)
 
 
 				}*/
-				if(sw0.digitalRead() == 0){
-					omni.request(0,0,0);
-					omni.drive();
-					while(sw0.digitalRead() == 0);
-					waitBreak(100);
-					break;
-				}
 			}
+			omni.request(0,0,0);
+			omni.drive();
 			break;
 
 		case 1:
-			while(flag[0]){
-				serial.printf("ODOMETRY TEST\n\r");
+			while(sw0.digitalRead()){
 				odm.update();
-				if(odm.radianAbs > 0){
-					radian = odm.radianAbs;
-				}else{
-					radian = odm.radianAbs - 2*M_PI;
-				}
-				//serial.printf("%f , %f , %f , %f , %f , %d\n\r",odm.integralX,odm.integralY,radian*180/M_PI,odm.X,odm.Y,odm.radianDelta - odm.radianOrg);
-				//serial.printf("%d %d %d\n\r",odm.encTest[0],odm.encTest[1],odm.encTest[2]);
-				serial.printf("%d %d %d\n\r",enc0.count(),enc1.count(),enc2.count());
-				if(sw0.digitalRead() == 0){
-					while(sw0.digitalRead() == 0);
-					break;
-				}
+				//serial.printf("%d %d %d\n\r",odm.encData[0],odm.encData[1],odm.encData[2]);
+				serial.printf("%d %d %d %d %d %d\n\r",enc0.count(),enc1.count(),enc2.count(),odm.encData[0],odm.encData[1],odm.encData[2]);
 				waitBreak(100);
 			}
 
 			break;
 
 		case 2:
+			while(sw0.digitalRead()){
+				odm.update();
+				serial.printf("%f , %f , %f , %f , %f , %d\n\r",odm.integralX,odm.integralY,odm.radianAbs*180/M_PI,odm.X,odm.Y,odm.radianDelta - odm.radianOrg);
+				waitBreak(100);
+			}
+			break;
+
+		case 3:
 			motor0.drive(1.0,1,0);
 			motor1.drive(1.0,1,0);
 			motor2.drive(1.0,1,0);
@@ -400,7 +409,7 @@ int main(void)
 			motor2.drive(0,1,0);
 			break;
 
-		case 3:
+		case 4:
 			encOld0 = enc0.count();
 			encOld1 = enc1.count();
 			encOld2 = enc2.count();
@@ -462,7 +471,7 @@ int main(void)
 			}
 			break;
 
-		case 4:
+		case 5:
 			for(float rad=0;rad<2*M_PI;rad+=(2*M_PI)/180){		//‰~Œ`ˆÚ“®
 				omni.request(rad,1.0,spin);
 				omni.drive();
@@ -496,7 +505,7 @@ int main(void)
 			}
 			break;
 
-		case 5:
+		case 6:
 			motor0.drive(1.0,1,0);
 			waitBreak(1000);
 			motor1.drive(1.0,1,0);
@@ -505,7 +514,7 @@ int main(void)
 			waitBreak(1000);
 			break;
 
-		case 6:
+		case 7:
 			spinCnt=0;
 			targetRadian = 0;
 			odm.reset();
@@ -543,15 +552,58 @@ int main(void)
 				omni.request(0,0,-spin);
 
 				omni.drive();
-				wait(10);
-				if(sw0.digitalRead() == 0){
-					while(sw0.digitalRead() == 0);
-					break;
-				}
+				waitBreak(10);
 			}
-
 			break;
 
 		}
 	}
+}
+
+
+int waitBreak(int waitTime){
+	Sw0 sw0;
+	sw0.setupDigitalIn();
+	waitTime += millis();
+	while(waitTime > millis()){
+		if(sw0.digitalRead() == 0){
+			return 1;
+		}
+	}
+	return 0;
+}
+
+void sound(int pattern){
+	Buzzer bz;
+	bz.setupPwmOut(1000,0);
+	if(pattern > PAT_NUM)return;
+	switch(pattern){
+	case 0:
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(80);
+		break;
+	case 1:
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(50);
+		bz.setupPwmOut(5000,0);
+		waitBreak(30);
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(50);
+		break;
+	case 2:
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(80);
+		bz.setupPwmOut(5000,0);
+		waitBreak(100);
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(80);
+		break;
+	case 3:
+		bz.setupPwmOut(2500,0.5);
+		waitBreak(200);
+		bz.setupPwmOut(5000,0.5);
+		waitBreak(50);
+		break;
+	}
+	bz.setupPwmOut(5000,0);
 }
