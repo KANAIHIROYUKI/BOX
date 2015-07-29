@@ -48,7 +48,7 @@ void sound(int pattern);
 int main(void)
 {
 	float spin=0,radianDif,distanceX,distanceY;
-	float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};
+	float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};//RP
 	float targetX[] = {0,  0, 80,160,160,160,100,  0,220,220,320,380,400,380,320,220,220};
 	//float targetX[] = {0,500,500,  0,0,250,500};
 	//float targetY[] = {0,  0,500,500,0,500,250};
@@ -61,7 +61,10 @@ int main(void)
 	float v_radian,v_slope,v_distance,c_radius = ReferenceCircle,d_radian,q_radian,d_r;
 
 	int cnt=0,buzzerCnt = 0,spinCnt;
-	int flag[3],testMode,swFlag;
+	int testMode,swFlag;
+
+	int encOld[] = {0,0,0};
+	int encFlag[] = {0,0,0};
 
 	int_least32_t cycleTime;
 
@@ -69,47 +72,91 @@ int main(void)
 	serial.setup(115200);
 
 	A0 a0;
-	a0.setupDigitalIn();
-
 	A1 a1;
-	a1.setupDigitalIn();
-
 	A2 a2;
-	a2.setupDigitalIn();
-
 	A3 a3;
-	a3.setupDigitalIn();
+	A4 a4;
+	a0.setupDigitalInPullDown();
+	a1.setupDigitalInPullUp();
+	a2.setupDigitalInPullUp();
+	a3.setupDigitalInPullUp();
+	a4.setupDigitalInPullUp();
+/*
+	a0.setupAnalogIn();
+	a1.setupAnalogIn();
+	a2.setupAnalogIn();
+	a3.setupAnalogIn();
+	a4.setupAnalogIn();*/
+
+
+	while(1){
+		/*if(a0.digitalRead())serial.printf("0");
+		if(a1.digitalRead())serial.printf("1");
+		if(a2.digitalRead())serial.printf("2");
+		if(a3.digitalRead())serial.printf("3");
+		if(a4.digitalRead())serial.printf("4");
+		serial.printf("\n\r");*/
+		serial.printf("%d\n\r",a0.digitalRead());
+		wait(100);
+	}
 
 	Sw0 sw0;
-	sw0.setupDigitalIn();
-
 	Sw1 sw1;
-	sw1.setupDigitalIn();
-
 	Sw2 sw2;
-	sw2.setupDigitalIn();
-
 	Sw3 sw3;
+
+	sw0.setupDigitalIn();
+	sw1.setupDigitalIn();
+	sw2.setupDigitalIn();
 	sw3.setupDigitalIn();
 
 	Led0 led0;
-	led0.setupDigitalOut();
-	led0.digitalHigh();
-
 	Led1 led1;
-	led1.setupDigitalOut();
-	led1.digitalHigh();
-
 	Led2 led2;
-	led2.setupDigitalOut();
-	led2.digitalHigh();
-
 	Led3 led3;
+
+	led0.setupDigitalOut();
+	led1.setupDigitalOut();
+	led2.setupDigitalOut();
 	led3.setupDigitalOut();
+	led0.digitalHigh();
+	led1.digitalHigh();
+	led2.digitalHigh();
 	led3.digitalHigh();
 
 	Buzzer bz;
 	bz.setupPwmOut(4000,0);
+
+	/*while(1){
+		serial.printf("ENC0: %d ENC1: %d ENC2: %d\n\r",canEnc0.count(),canEnc1.count(),canEnc2.count());
+		wait(100);
+	}*/
+
+	Enc0 enc0;
+	Enc1 enc1;
+	Enc2 enc2;
+
+	Pwm0 pwm0;
+	Pwm1 pwm1;
+	Pwm2 pwm2;
+	Pwm3 pwm3;
+	CW0 cw0;
+	CW1 cw1;
+	CW2 cw2;
+	CW3 cw3;
+	CCW0 ccw0;
+	CCW1 ccw1;
+	CCW2 ccw2;
+	CCW3 ccw3;
+
+	Motor motor0(pwm0,cw0,ccw0);
+	Motor motor1(pwm1,cw1,ccw1);
+	Motor motor2(pwm2,cw2,ccw2);
+	Motor motor3(pwm3,cw3,ccw3);
+	motor0.setup();
+	motor1.setup();
+	motor2.setup();
+	motor3.setup();
 
 	Can0 can;
 	can.setup();
@@ -120,48 +167,10 @@ int main(void)
 	canEnc1.setup();
 	canEnc2.setup();
 
-	/*while(1){
-		serial.printf("ENC0: %d ENC1: %d ENC2: %d\n\r",canEnc0.count(),canEnc1.count(),canEnc2.count());
-		wait(100);
-	}*/
-	/*sound(0);
-	wait(300);
-	sound(1);
-	wait(300);
-	sound(2);
-	wait(300);
-	sound(3);
-	wait(500);*/
-
-	Enc0 enc0;
-	Enc1 enc1;
-	Enc2 enc2;
-
-	Pwm0 pwm0;
-	CW0 cw0;
-	CCW0 ccw0;
-
-	Pwm1 pwm1;
-	CW1 cw1;
-	CCW1 ccw1;
-
-	Pwm2 pwm2;
-	CW2 cw2;
-	CCW2 ccw2;
-
-	Motor motor0(pwm0,cw0,ccw0);
-	Motor motor1(pwm1,cw1,ccw1);
-	Motor motor2(pwm2,cw2,ccw2);
-
-	int encOld0 = enc0.count();//モーター起動･停止出力
-	int encOld1 = enc1.count();
-	int encOld2 = enc2.count();
-	int encFlag0=0;
-	int encFlag1=0;
-	int encFlag2=0;
-
 	Omni omni(motor0,motor1,motor2,enc0,enc1,enc2);
-	OmniOdometry odm(143,canEnc0,canEnc1,canEnc2);
+	omni.setup();
+	OmniOdometry odm(120,canEnc0,canEnc1,canEnc2);
+	odm.setup();
 
 	while(1){
 		while(sw0.digitalRead() == 0);
@@ -169,7 +178,7 @@ int main(void)
 		testMode = 0;
 		cnt=1;
 		swFlag = 1;
-		serial.printf("MOTOR TEST \n\r SW1 and SW3 : select  SW2 : START\n\r");
+		serial.printf("SW1 and SW3 : SELECT  SW2 : START\n\r");
 		omni.request(0,0,0);
 		omni.drive();
 		bz.pwmWrite(0);
@@ -234,10 +243,9 @@ int main(void)
 			odm.reset();
 			odm.update();
 			cycleTime = millis() + ControlCycle;
-			serial.printf("%f,%f,%f,%d,%d,%d\n\r",odm.integralX,odm.integralY,odm.radianAbs,odm.encTest[0],odm.encTest[1],odm.encTest[2]);
+			serial.printf("%f,%f,%f,%d,%d,%d\n\r",odm.integralX,odm.integralY,odm.radianAbs,odm.encData[0],odm.encData[1],odm.encData[2]);
 			while(sw0.digitalRead()){
 				odm.update();
-
 				/*targetRadian += M_PI/500;
 				if(targetRadian > M_PI)targetRadian-=M_PI*2;*/
 
@@ -350,7 +358,7 @@ int main(void)
 					cycleTime+=ControlCycle;
 					omni.request(d_radian - odm.radianAbs,power,-spin);
 					omni.drive();
-					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],radian);
+					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian);
 					//serial.printf("\n\r %d,%f,%f,%d,%d,%d,%f,%f,",odm.radianOrg,spin,radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],odm.integralX,odm.integralY);
 				}
 
@@ -370,7 +378,7 @@ int main(void)
 			while(sw0.digitalRead()){
 				odm.update();
 				//serial.printf("%d %d %d\n\r",odm.encData[0],odm.encData[1],odm.encData[2]);
-				serial.printf("%d %d %d %d %d %d\n\r",enc0.count(),enc1.count(),enc2.count(),odm.encData[0],odm.encData[1],odm.encData[2]);
+				serial.printf("%d %d %d %d %d %d %d\n\r",enc0.count(),enc1.count(),enc2.count(),odm.encData[0],odm.encData[1],odm.encData[2],odm.radianOrg);
 				waitBreak(100);
 			}
 
@@ -389,56 +397,56 @@ int main(void)
 			motor1.drive(1.0,1,0);
 			motor2.drive(1.0,1,0);
 			waitBreak(1000);
-			encOld0 = enc0.count();
-			encOld1 = enc1.count();
-			encOld2 = enc2.count();
+			encOld[0] = enc0.count();
+			encOld[1] = enc1.count();
+			encOld[2] = enc2.count();
 			waitBreak(10000);
-			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld0,enc1.count() - encOld1,enc2.count() - encOld2);
+			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld[0],enc1.count() - encOld[1],enc2.count() - encOld[2]);
 			serial.printf("INVERSE");
 			motor0.drive(1.0,0,1);
 			motor1.drive(1.0,0,1);
 			motor2.drive(1.0,0,1);
 			waitBreak(1000);
-			encOld0 = enc0.count();
-			encOld1 = enc1.count();
-			encOld2 = enc2.count();
+			encOld[0] = enc0.count();
+			encOld[1] = enc1.count();
+			encOld[2] = enc2.count();
 			waitBreak(10000);
-			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld0,enc1.count() - encOld1,enc2.count() - encOld2);
+			serial.printf("ENC0 = %d ,ENC1 = %d ,ENC2 = %d\n\r",enc0.count() - encOld[0],enc1.count() - encOld[1],enc2.count() - encOld[2]);
 			motor0.drive(0,1,0);
 			motor1.drive(0,1,0);
 			motor2.drive(0,1,0);
 			break;
 
 		case 4:
-			encOld0 = enc0.count();
-			encOld1 = enc1.count();
-			encOld2 = enc2.count();
+			encOld[0] = enc0.count();
+			encOld[1] = enc1.count();
+			encOld[2] = enc2.count();
 			for(float i = 0.0;i<1.0;i+=0.01){
 				motor0.drive(i,1,0);
 				motor1.drive(i,1,0);
 				motor2.drive(i,1,0);
-				if(encOld0 <= enc0.count() - 10 && encFlag0 == 0){
+				if(encOld[0] <= enc0.count() - 10 && encFlag[0] == 0){
 					serial.printf("ENC0 %f\n\r",i);
-					encFlag0 = 1;
+					encFlag[0] = 1;
 				}
-				if(encOld1 <= enc1.count() - 10 && encFlag1 == 0){
+				if(encOld[1] <= enc1.count() - 10 && encFlag[1] == 0){
 					serial.printf("ENC1 %f\n\r",i);
-					encFlag1 = 1;
+					encFlag[1] = 1;
 				}
-				if(encOld2 <= enc2.count() - 10 && encFlag2 == 0){
+				if(encOld[2] <= enc2.count() - 10 && encFlag[2] == 0){
 					serial.printf("ENC2 %f\n\r",i);
-					encFlag2 = 1;
+					encFlag[2] = 1;
 				}
-				if(encFlag0 == 1 && encFlag1 == 1 && encFlag2 == 1){
+				if(encFlag[0] == 1 && encFlag[1] == 1 && encFlag[2] == 1){
 					motor0.drive(0.5,1,0);
 					motor1.drive(0.5,1,0);
 					motor2.drive(0.5,1,0);
 					waitBreak(1000);
 					break;
 				}
-				encOld0 = enc0.count();
-				encOld1 = enc1.count();
-				encOld2 = enc2.count();
+				encOld[0] = enc0.count();
+				encOld[1] = enc1.count();
+				encOld[2] = enc2.count();
 				waitBreak(500);
 			}
 			serial.printf("Deceleration\n\r");
@@ -446,22 +454,22 @@ int main(void)
 				motor0.drive(i,1,0);
 				motor1.drive(i,1,0);
 				motor2.drive(i,1,0);
-				if(encOld0 == enc0.count() && encFlag0 == 1){
+				if(encOld[0] == enc0.count() && encFlag[0] == 1){
 					serial.printf("ENC0 %f\n\r",i);
-					encFlag0 = 0;
+					encFlag[0] = 0;
 				}
-				if(encOld1 == enc1.count() && encFlag1 == 1){
+				if(encOld[1] == enc1.count() && encFlag[1] == 1){
 					serial.printf("ENC1 %f\n\r",i);
-					encFlag1 = 0;
+					encFlag[1] = 0;
 				}
-				if(encOld2 == enc2.count() && encFlag2 == 1){
+				if(encOld[2] == enc2.count() && encFlag[2] == 1){
 					serial.printf("ENC2 %f\n\r",i);
-					encFlag2 = 0;
+					encFlag[2] = 0;
 				}
-				encOld0 = enc0.count();
-				encOld1 = enc1.count();
-				encOld2 = enc2.count();
-				if(encFlag0 == 0 && encFlag1 == 0 && encFlag2 == 0){
+				encOld[0] = enc0.count();
+				encOld[1] = enc1.count();
+				encOld[2] = enc2.count();
+				if(encFlag[0] == 0 && encFlag[1] == 0 && encFlag[2] == 0){
 					motor0.drive(0,1,0);
 					motor1.drive(0,1,0);
 					motor2.drive(0,1,0);

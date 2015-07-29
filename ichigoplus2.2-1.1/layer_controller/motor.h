@@ -42,21 +42,21 @@
 
 
 class Motor {
+private:
+	int setupFlag;
 public:
 	Pwm *pwm;
 	Digital *ccw;
 	Digital *cw;
 
 	Motor(Pwm &pwmPin,Digital &ccwPin,Digital &cwPin){
+		setupFlag = 0;
 		this-> pwm = &pwmPin;
 		this-> cw = &cwPin;
 		this-> ccw = &ccwPin;
-
-		pwm->setupPwmOut(1000,0.50);
-		cw->setupDigitalOut();
-		ccw->setupDigitalOut();
 	};
 
+	int setup();
 	void drive(float pwm,int a,int b);
 
 
@@ -66,6 +66,8 @@ private:
 
 
 class Omni {
+private:
+	int setupFlag;
 public:
 	Motor *mt0;
 	Motor *mt1;
@@ -89,6 +91,7 @@ public:
 	int motorRev[3];
 
 	Omni(Motor &mt0,Motor &mt1,Motor &mt2,Enc0 &enc0,Enc1 &enc1,Enc2 &enc2){
+		setupFlag = 0;
 		this->mt0 = &mt0;
 		this->mt1 = &mt1;
 		this->mt2 = &mt2;
@@ -96,12 +99,9 @@ public:
 		this->enc0 = &enc0;
 		this->enc1 = &enc1;
 		this->enc2 = &enc2;
-
-		enc0.setup();
-		enc1.setup();
-		enc2.setup();
 	};
 
+	int setup();
 	void request(float radian,float power,float spin);
 	void drive();
 	//float control(float targetX,float targetY,float targetRad);

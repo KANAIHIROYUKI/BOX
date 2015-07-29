@@ -1,14 +1,30 @@
 #include "odometry.h"
 
 
+int OmniOdometry::setup(){
+	if(setupFlag)return 1;
+	setupFlag = 1;
+	/*
+	enc0->setup();
+	enc1->setup();
+	enc2->setup();*/
 
+	encOld[0] = enc0->count()*1;
+	encOld[1] = enc1->count()*5;
+	encOld[2] = enc2->count()*5;
+
+	encTime = micros();
+	return 0;
+};
 
 void OmniOdometry::update(){
 	encData[0] = enc0->count();
 	encData[1] = enc1->count()*5;
 	encData[2] = enc2->count()*5;
+
     radianOrg = encData[0] + encData[1] + encData[2] - encOffSet[0]  - encOffSet[1]  - encOffSet[2];	//角度生の値(累積による誤差が発生しない)
-    radianAbs = (radianOrg*M_PI)/(150*length);	//弧度法に直す
+    radianAbs = (radianOrg*M_PI)/(200*length);	//弧度法に直す
+    degree = radianAbs*180/M_PI;
 
     while(radianAbs > 2*M_PI){//0 =< rad =< 2piに直す
         radianAbs -= 2*M_PI;
@@ -21,14 +37,10 @@ void OmniOdometry::update(){
     enc[1] = encData[1] - encOld[1];// - encOffSet[1];
     enc[2] = encData[2] - encOld[2];// - encOffSet[2];
 
-    encTest[0] = encData[0];
-    encTest[1] = encData[1];
-    encTest[2] = encData[2];
-
     encCntDif = abs(enc[0]) + abs(enc[1]) + abs(enc[2]);
 
-    X = -enc[FRONT] + enc[LEFT]/2 + enc[RIGHT]/2;
-    Y = sqrtf(3)*enc[RIGHT]/2 - sqrtf(3)*enc[LEFT]/2;//自己位置計算
+    X = -enc[ENC_FRONT] + enc[ENC_LEFT]/2 + enc[ENC_RIGHT]/2;
+    Y = sqrtf(3)*enc[ENC_RIGHT]/2 - sqrtf(3)*enc[ENC_LEFT]/2;//自己位置計算
     X = (X*M_PI)/(7.3*10);
     Y = (Y*M_PI)/(7.3*10);
 
@@ -40,7 +52,6 @@ void OmniOdometry::update(){
         radian = atan2(Y,X);
         cumulativeX += X*cos(radianAbs) - Y*sin(radianAbs);
         cumulativeY += X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
-        degree = radian*180/M_PI;
 
         encOld[0] = encData[0];// - encOffSet[0];
         encOld[1] = encData[1];// - encOffSet[1];

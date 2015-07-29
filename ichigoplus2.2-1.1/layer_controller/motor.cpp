@@ -1,5 +1,13 @@
 #include "motor.h"
 
+int Motor::setup(){
+	if(setupFlag)return 1;
+	setupFlag = 1;
+	pwm->setupPwmOut(1000,0.50);
+	cw->setupDigitalOut();
+	ccw->setupDigitalOut();
+	return 0;
+};
 
 void Motor::drive(float p,int a,int b){
 	p = 1.0 - p;
@@ -9,6 +17,17 @@ void Motor::drive(float p,int a,int b){
 };
 
 
+int Omni::setup(){
+	if(setupFlag)return 1;
+	setupFlag = 1;
+	mt0->setup();
+	mt1->setup();
+	mt2->setup();
+	enc0->setup();
+	enc1->setup();
+	enc2->setup();
+	return 0;
+}
 
 void Omni::request(float radian,float power,float spin){
 	static int encCntOld[3];
@@ -64,7 +83,6 @@ void Omni::request(float radian,float power,float spin){
 	}
 	motorPower[1] = -motorPower[1];
 	motorPower[2] = -motorPower[2];
-
 
 	motorPower[0] *= power;
 	motorPower[1] *= power;

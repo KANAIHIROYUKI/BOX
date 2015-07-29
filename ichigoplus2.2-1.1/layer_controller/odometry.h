@@ -13,68 +13,83 @@
 
 int abs(int a);
 
-#define FRONT 2
-#define RIGHT 1
-#define LEFT  0
+#define ENC_FRONT 2
+#define ENC_RIGHT 1
+#define ENC_LEFT  0
 
 
 
 class OmniOdometry{
+private:
+    float cumulativeX;
+    float cumulativeY;	//累積座標
+    int radianOld;
+    float length;    //中心からエンコーダまでの距離
+    int encTime;
+    int setupFlag;
+
 public:
 
-    float integralX = 0;
-    float integralY = 0;  //現在座標
-    float cumulativeX = 0;
-    float cumulativeY = 0;	//累積座標
+    float integralX;
+    float integralY;  //現在座標
 
-    float X = 0;
-    float Y = 0;            //移動量
-    float radian = 0;
-    float degree = 0;       //移動角度
-    float radianAbs = 0;    //ロボットの角度
-    int radianDelta = 0;
-    int radianOld = 0;
-    //int radianCorrection;
-    float length = 0;    //中心からエンコーダまでの距離
+    float X;
+    float Y;            //移動量
+    float radian;
+    int radianDelta;
+    float degree;       //移動角度
+    float radianAbs;    //ロボットの角度
 
-    int encCntDif = 0;   //エンコーダの前回の値
-    long radianOrg = 0;   //機体角度､エンコーダ生の値
-
-    int encTime = 0;
-
-    /*Enc0 *enc0;
-    Enc1 *enc1;
-    Enc2 *enc2;*/
+    int encCntDif;   //エンコーダの前回の値
+    long radianOrg;   //機体角度､エンコーダ生の値
 
     Can0 can;
     CanEncoder *enc0;
     CanEncoder *enc1;
     CanEncoder *enc2;
 
-    int encTest[3] = {0,0,0};
-    int enc[3] = {0,0,0};
-    int encOld[3] = {0,0,0};
-    int encOffSet[3] = {0,0,0};
-	int encData[3] = {0,0,0};
+    int enc[3];
+    int encOld[3];
+    int encOffSet[3];
+	int encData[3];
 
     OmniOdometry(float wheelLength,CanEncoder &enc0,CanEncoder &enc1,CanEncoder &enc2){
 
+    	setupFlag = 0;
+        cumulativeX = 0;
+        cumulativeY = 0;	//累積座標
+        radianOld = 0;
+        length = 0;    //中心からエンコーダまでの距離
+        encTime = 0;
+
+        encOffSet[0] = 0;
+        encOffSet[1] = 0;
+        encOffSet[2] = 0;
+    	encData[0] = 0;
+    	encData[1] = 0;
+    	encData[2] = 0;
+
+        integralX = 0;
+        integralY = 0;  //現在座標
+
+        X = 0;
+        Y = 0;            //移動量
+        radian = 0;
+        radianDelta = 0;
+        degree = 0;       //移動角度
+        radianAbs = 0;    //ロボットの角度
+
+        encCntDif = 0;   //エンコーダの前回の値
+        radianOrg = 0;   //機体角度､エンコーダ生の値
+
     	length = wheelLength;
+
     	this->enc0 = &enc0;
     	this->enc1 = &enc1;
     	this->enc2 = &enc2;
-
-    	enc0.setup();
-    	enc1.setup();
-    	enc2.setup();
-
-    	encOld[0] = enc0.count();
-    	encOld[1] = enc1.count()*5;
-    	encOld[2] = enc2.count()*5;
-
-    	encTime = micros();
     };
 
+    int setup();
     void update();
     void reset();
 
