@@ -87,6 +87,7 @@ public:
 	float ratioMax;
 
 	int encCnt[3];
+	int encData[3];
 	int encTime;
 	int motorRev[3];
 

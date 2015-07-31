@@ -81,24 +81,25 @@ int main(void)
 	a2.setupDigitalInPullUp();
 	a3.setupDigitalInPullUp();
 	a4.setupDigitalInPullUp();
-/*
-	a0.setupAnalogIn();
+
+	/*a0.setupAnalogIn();
 	a1.setupAnalogIn();
 	a2.setupAnalogIn();
 	a3.setupAnalogIn();
 	a4.setupAnalogIn();*/
 
 
-	while(1){
-		/*if(a0.digitalRead())serial.printf("0");
+	/*while(1){
+
+		if(a0.digitalRead())serial.printf("0");
 		if(a1.digitalRead())serial.printf("1");
 		if(a2.digitalRead())serial.printf("2");
 		if(a3.digitalRead())serial.printf("3");
 		if(a4.digitalRead())serial.printf("4");
-		serial.printf("\n\r");*/
-		serial.printf("%d\n\r",a0.digitalRead());
+		serial.printf("rn \n\r");
+		//serial.printf("%f %f %f %f %f\n\r",a0.analogRead(),a1.analogRead(),a2.analogRead(),a3.analogRead(),a4.analogRead());
 		wait(100);
-	}
+	}*/
 
 	Sw0 sw0;
 	Sw1 sw1;
@@ -158,6 +159,14 @@ int main(void)
 	motor2.setup();
 	motor3.setup();
 
+
+	/*while(1){
+		motor3.drive(1.0,sw1.digitalRead(),sw2.digitalRead());
+		//wait(200);
+		//motor3.drive(0,0,0);
+		//wait(50);
+	}*/
+
 	Can0 can;
 	can.setup();
 	CanEncoder canEnc0(can,0,5);
@@ -169,7 +178,7 @@ int main(void)
 
 	Omni omni(motor0,motor1,motor2,enc0,enc1,enc2);
 	omni.setup();
-	OmniOdometry odm(120,canEnc0,canEnc1,canEnc2);
+	OmniOdometry odm(110,canEnc0,canEnc1,canEnc2);
 	odm.setup();
 
 	while(1){
@@ -385,6 +394,7 @@ int main(void)
 			break;
 
 		case 2:
+			odm.reset();
 			while(sw0.digitalRead()){
 				odm.update();
 				serial.printf("%f , %f , %f , %f , %f , %d\n\r",odm.integralX,odm.integralY,odm.radianAbs*180/M_PI,odm.X,odm.Y,odm.radianDelta - odm.radianOrg);

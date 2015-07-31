@@ -38,16 +38,22 @@ void Omni::request(float radian,float power,float spin){
 	encTimeOld = millis();
 	encTime /= 10;//マイコンの分解能による
 
-	encCnt[0] = 10*(enc0->count() - encCntOld[0]);	//encCnt>0ならモーターが正回転
-	encCnt[1] = 10*(enc1->count() - encCntOld[1]);
-	encCnt[2] = 10*(enc2->count() - encCntOld[2]);
-	encCntOld[0] = enc0->count();
-	encCntOld[1] = enc1->count();
-	encCntOld[2] = enc2->count();
+	encData[0] = enc0->count();
+	encData[1] = enc1->count();
+	encData[2] = enc2->count();
+
+	encCnt[0] = 10*(encData[0] - encCntOld[0]);	//encCnt>0ならモーターが正回転
+	encCnt[1] = 10*(encData[1] - encCntOld[1]);
+	encCnt[2] = 10*(encData[2] - encCntOld[2]);
+	encCntOld[0] = encData[0];
+	encCntOld[1] = encData[1];
+	encCntOld[2] = encData[2];
 
 	motorRev[0] = encCnt[0]/encTime;
 	motorRev[1] = encCnt[1]/encTime;
 	motorRev[2] = encCnt[2]/encTime;
+
+	radian-=M_PI/3;
 
 	while(radian < -M_PI/6){
 		radian += 2*M_PI;

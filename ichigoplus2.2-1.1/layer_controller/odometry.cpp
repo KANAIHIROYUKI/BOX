@@ -23,7 +23,7 @@ void OmniOdometry::update(){
 	encData[2] = enc2->count()*5;
 
     radianOrg = encData[0] + encData[1] + encData[2] - encOffSet[0]  - encOffSet[1]  - encOffSet[2];	//角度生の値(累積による誤差が発生しない)
-    radianAbs = (radianOrg*M_PI)/(200*length);	//弧度法に直す
+    radianAbs = (radianOrg*M_PI)/(100*length);	//弧度法に直す
     degree = radianAbs*180/M_PI;
 
     while(radianAbs > 2*M_PI){//0 =< rad =< 2piに直す
@@ -41,8 +41,8 @@ void OmniOdometry::update(){
 
     X = -enc[ENC_FRONT] + enc[ENC_LEFT]/2 + enc[ENC_RIGHT]/2;
     Y = sqrtf(3)*enc[ENC_RIGHT]/2 - sqrtf(3)*enc[ENC_LEFT]/2;//自己位置計算
-    X = (X*M_PI)/(7.3*10);
-    Y = (Y*M_PI)/(7.3*10);
+    X = (X*M_PI)/(4.85*10);
+    Y = (Y*M_PI)/(4.85*10);
 
     integralX = cumulativeX + X*cos(radianAbs) - Y*sin(radianAbs);
     integralY = cumulativeY + X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
