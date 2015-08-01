@@ -11,8 +11,8 @@ int Motor::setup(){
 
 void Motor::drive(float p,int a,int b){
 	p = 1.0 - p;
-	cw->digitalWrite(a);
-	ccw->digitalWrite(b);
+	cw->digitalWrite(a&1);
+	ccw->digitalWrite(b&1);
 	pwm->pwmWrite(p);
 };
 
@@ -30,7 +30,6 @@ int Omni::setup(){
 }
 
 void Omni::request(float radian,float power,float spin){
-	static int encCntOld[3];
 	static int encTimeOld;
 	power *= MOTOR_GAIN;
 
@@ -45,9 +44,6 @@ void Omni::request(float radian,float power,float spin){
 	encCnt[0] = 10*(encData[0] - encCntOld[0]);	//encCnt>0‚È‚çƒ‚[ƒ^[‚ª³‰ñ“]
 	encCnt[1] = 10*(encData[1] - encCntOld[1]);
 	encCnt[2] = 10*(encData[2] - encCntOld[2]);
-	encCntOld[0] = encData[0];
-	encCntOld[1] = encData[1];
-	encCntOld[2] = encData[2];
 
 	motorRev[0] = encCnt[0]/encTime;
 	motorRev[1] = encCnt[1]/encTime;
@@ -217,6 +213,10 @@ void Omni::request(float radian,float power,float spin){
 };
 
 void Omni::drive(){
+	encCntOld[0] = enc0->count();
+	encCntOld[1] = enc1->count();
+	encCntOld[2] = enc2->count();
+
 	if(motorPower[0] >= 0){//RIGHT
 		mt0->drive(motorPower[0],1,0);
 	}else{

@@ -37,7 +37,7 @@
 
 #define GAIN_SPIN_D 0
 
-#define TargetQuantity 15
+#define TargetQuantity 6
 #define ControlCycle 10
 
 
@@ -48,8 +48,13 @@ void sound(int pattern);
 int main(void)
 {
 	float spin=0,radianDif,distanceX,distanceY;
-	float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};//RP
-	float targetX[] = {0,  0, 80,160,160,160,100,  0,220,220,320,380,400,380,320,220,220};
+	//float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};//RP
+	//float targetX[] = {0,  0, 80,160,160,160,100,  0,220,220,320,380,400,380,320,220,220};
+	float targetY[] = {0,300,  0,  0,300,  0,0};
+	float targetX[] = {0,  0,  0,  0,  0,  5,0};
+	unsigned char armPos[]    = {0,  2,  1,  0,  2,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0};//1,2‚ÍŽ~‚Ü‚Á‚½‚Ü‚Ü¤3,4‚Í‘–‚è‚È‚ª‚ç
+	unsigned char armOrder=0;
+
 	//float targetX[] = {0,500,500,  0,0,250,500};
 	//float targetY[] = {0,  0,500,500,0,500,250};
 
@@ -67,6 +72,7 @@ int main(void)
 	int encFlag[] = {0,0,0};
 
 	int_least32_t cycleTime;
+	int armTime=0;
 
 	Serial0 serial;
 	serial.setup(115200);
@@ -76,7 +82,7 @@ int main(void)
 	A2 a2;
 	A3 a3;
 	A4 a4;
-	a0.setupDigitalInPullDown();
+	a0.setupDigitalInPullUp();
 	a1.setupDigitalInPullUp();
 	a2.setupDigitalInPullUp();
 	a3.setupDigitalInPullUp();
@@ -161,7 +167,7 @@ int main(void)
 
 
 	/*while(1){
-		motor3.drive(1.0,sw1.digitalRead(),sw2.digitalRead());
+		motor3.drive(0.3,sw1.digitalRead(),sw2.digitalRead());
 		//wait(200);
 		//motor3.drive(0,0,0);
 		//wait(50);
@@ -255,8 +261,6 @@ int main(void)
 			serial.printf("%f,%f,%f,%d,%d,%d\n\r",odm.integralX,odm.integralY,odm.radianAbs,odm.encData[0],odm.encData[1],odm.encData[2]);
 			while(sw0.digitalRead()){
 				odm.update();
-				/*targetRadian += M_PI/500;
-				if(targetRadian > M_PI)targetRadian-=M_PI*2;*/
 
 				distanceX = targetX[cnt] - odm.integralX;
 				distanceY = targetY[cnt] - odm.integralY;
@@ -315,35 +319,15 @@ int main(void)
 			                //serial.printf(" Q4");
 			            }
 			        }else{
-			            //d_radian = atan2(odm.integralY - targetY[cnt],odm.integralX - targetX[cnt]);
 			        	d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
 			            //serial.printf(" V_LINE FAR");
 			        }
 			    }
 				if(d_radian < 0)d_radian+=2*M_PI;
 
-				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10){
-					cnt++;
-					serial.printf("NEXT POINT");
-					buzzerCnt = 10;
-				}
-				if(cnt>TargetQuantity){
-					cnt--;
-					//omni.drive(0,0,0);
-					//wait(100);
-					//break;
-				}
-
-				if(buzzerCnt > 0){
-					buzzerCnt--;
-					bz.pwmWrite(0.5);
-				}else{
-					bz.pwmWrite(0);
-				}
 
 				power = sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P + (sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P - power)*GAIN_D;
 				if(power > 1.0)power = 1.0;
-
 
 				if(odm.radianAbs > M_PI){
 					radianDif = odm.radianAbs - 2*M_PI;
@@ -363,25 +347,63 @@ int main(void)
 				if(spin>3.0)spin=3.0;
 
 
+
+				if(armTime+1000 > millis()){
+					motor3.drive(1.0,(armOrder&2)>>1,armOrder&1);
+				}else{
+					armOrder=0;
+					motor3.drive(0,0,0);
+				}
+
+				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10  && armOrder == 0){//–Ú•W’n“_‚ÉÚ‹ß‚µ‚½Žž‚Ìˆ—
+					if(cnt <= TargetQuantity && armPos[cnt] == 0){
+						cnt++;
+						armOrder = armPos[cnt];
+						serial.printf("NEXT POINT");
+					}else if(cnt <= TargetQuantity){
+						if(armPos[cnt] <= 2){
+							cnt++;
+							armOrder=armPos[cnt];
+							armTime = millis();
+							serial.printf("NEXT POINT WITH ARM MOVE");
+						}else{
+							omni.request(0,0,0);
+							omni.drive();
+							motor3.drive(1.0,armPos[cnt]>>1,armPos[cnt]);
+							waitBreak(1000);
+							motor3.drive(0,0,0);
+
+							cnt++;
+							armOrder=armPos[cnt];
+							serial.printf("NEXT POINT WITH ARM MOVE");
+						}
+					}
+					buzzerCnt = 10;
+				}
+
+				if(buzzerCnt > 0){
+					buzzerCnt--;
+					bz.pwmWrite(0.5);
+				}else{
+					bz.pwmWrite(0);
+				}
+
 				if(cycleTime < millis()){
 					cycleTime+=ControlCycle;
 					omni.request(d_radian - odm.radianAbs,power,-spin);
 					omni.drive();
-					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian);
+					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f , %d , %d ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian,armOrder,armTime);
 					//serial.printf("\n\r %d,%f,%f,%d,%d,%d,%f,%f,",odm.radianOrg,spin,radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],odm.integralX,odm.integralY);
 				}
 
 				//serial.printf("\n\r%f,%f,%f,",d_radian,radianDif,d_radian + radianDif);
-				/*serial.printf("%d,%d",millis(),cycleTime);
-				if(millis() >= cycleTime){
-					cycleTime += ControlCycle;
 
-
-				}*/
 			}
 			omni.request(0,0,0);
 			omni.drive();
+			motor3.drive(0,0,0);
 			break;
+
 
 		case 1:
 			while(sw0.digitalRead()){
