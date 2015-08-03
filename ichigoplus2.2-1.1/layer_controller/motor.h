@@ -14,20 +14,20 @@
 #define RIGHT 0
 #define LEFT 2
 
-#define MotorMax0 5250
-#define MotorMax1 5300
-#define MotorMax2 5300
+#define MotorMax0 5350
+#define MotorMax1 5500
+#define MotorMax2 5250
 
-#define PowToRev 5300
+#define PowToRev 5500
 
-#define KF0 0.11
-#define SF0 0.19
+#define KF0 0.08
+#define SF0 0.12
 
 #define KF1 0.09
-#define SF1 0.26
+#define SF1 0.25
 
 #define KF2 0.12
-#define SF2 0.52
+#define SF2 0.24
 
 #define ARM_P 0
 #define ARM_I 1

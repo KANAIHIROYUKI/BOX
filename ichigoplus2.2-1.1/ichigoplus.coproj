@@ -171,9 +171,9 @@
     <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.c" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_core.c" type="1"/>
     <File name="layer_driver/base/serial.hpp" path="layer_driver/base/serial.hpp" type="1"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_defines.h" path="layer_driver/board/stm32f4_config/usb/usb_lib/otg/usb_defines.h" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_usr.c" path="layer_driver/board/stm32f4_config/usb/usb_conf/usbd_usr.c" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers3.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/layers3.png" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f1.png" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/img/f1.png" type="1"/>
     <File name="layer_driver/board/stm32f4_config/name_converter.h" path="layer_driver/board/stm32f4_config/name_converter.h" type="1"/>
     <File name="layer_controller/odometry.cpp" path="layer_controller/odometry.cpp" type="1"/>
@@ -260,9 +260,9 @@
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_lib/source/stm32f4xx_flash.c" path="cmsis_lib/source/stm32f4xx_flash.c" type="1"/>
     <File name="layer_driver/base/mcutime.c" path="layer_driver/base/mcutime.c" type="1"/>
+    <File name="layer_driver/board/stm32f4_config/config_pwm.h" path="layer_driver/board/stm32f4_config/config_pwm.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" path="layer_driver/board/stm32f4_config/sd/fatfs/doc/en/setlabel.html" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
-    <File name="layer_driver/board/stm32f4_config/config_pwm.h" path="layer_driver/board/stm32f4_config/config_pwm.h" type="1"/>
     <File name="layer_driver/board/stm32f4_config/config_iwdg.c" path="layer_driver/board/stm32f4_config/config_iwdg.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_crc.c" path="cmsis_lib/source/stm32f4xx_crc.c" type="1"/>
     <File name="layer_driver/board/stm32f4_config/sd/fatfs/lo_level_ub" path="" type="2"/>

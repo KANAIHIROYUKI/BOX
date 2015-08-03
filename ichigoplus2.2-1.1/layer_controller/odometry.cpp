@@ -26,10 +26,10 @@ void OmniOdometry::update(){
     radianAbs = (radianOrg*M_PI)/(100*length);	//弧度法に直す
     degree = radianAbs*180/M_PI;
 
-    while(radianAbs > 2*M_PI){//0 =< rad =< 2piに直す
+    while(radianAbs > M_PI){//-PI =< rad < piに直す
         radianAbs -= 2*M_PI;
     }
-    while(radianAbs < 0){
+    while(radianAbs < -M_PI){
         radianAbs += 2*M_PI;
     }
 
@@ -47,7 +47,7 @@ void OmniOdometry::update(){
     integralX = cumulativeX + X*cos(radianAbs) - Y*sin(radianAbs);
     integralY = cumulativeY + X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
 
-    if((encCntDif > 300 && encCntDif <= 1000) || radianDelta - radianOrg > 50 || radianDelta - radianOrg < -50){						//前回計算時との差が一定以上に達したら計算
+    if((encCntDif > 100 && encCntDif <= 1000) || radianDelta - radianOrg > 50 || radianDelta - radianOrg < -50){						//前回計算時との差が一定以上に達したら計算
     	radianDelta = radianOrg;
         radian = atan2(Y,X);
         cumulativeX += X*cos(radianAbs) - Y*sin(radianAbs);

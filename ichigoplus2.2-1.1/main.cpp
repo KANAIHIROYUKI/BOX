@@ -35,9 +35,8 @@
 
 #define ReferenceCircle 100
 
-#define GAIN_SPIN_D 0
+#define GAIN_SPIN_D 5
 
-#define TargetQuantity 6
 #define ControlCycle 10
 
 
@@ -49,16 +48,40 @@ int main(void)
 {
 	float spin=0,radianDif,distanceX,distanceY;
 	//float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};//RP
-	//float targetX[] = {0,  0, 80,160,160,160,100,  0,220,220,320,380,400,380,320,220,220};
-	float targetY[] = {0,300,  0,  0,300,  0,0};
-	float targetX[] = {0,  0,  0,  0,  0,  5,0};
-	unsigned char armPos[]    = {0,  2,  1,  0,  2,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0};//1,2は止まったまま､3,4は走りながら
-	unsigned char armOrder=0;
+	//float targetX[] =
 
-	//float targetX[] = {0,500,500,  0,0,250,500};
-	//float targetY[] = {0,  0,500,500,0,500,250};
+	//float targetY[] = ;
+	//float targetX[] =
+
+	//float targetX[] =
+	//float targetY[] = ;
+
+	//float targetX[] =
+	//float targetY[] = ;
+	unsigned char profile = 0;
+	unsigned char targetQuantity[] = {4,6,4,5,6,16,0,0};//座標のある最後の配列の数
+	float targetX[6][17] = {{0,    0,    0, -750, -750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+						 	{0,    0,  750,  750,  750, -750, -750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+						 	{0,    0, 1500, 1500, 1500,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+					 	 	{0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+					 	 	{0,  500,  500,    0,    0,  250,  500,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+						 	{0,    0,   80,  160,  160,  160,  100,    0,  220,  220,  320,  380,  400,  380,  320,  220,  220}};
+	float targetY[6][17] = {{0, 1750, 1000, 1000,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+							{0, 1000, 1000, 1750, 1000, 1000,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+							{0, 1000, 1000, 1750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+							{0,  300,    0,  300,    0,  300,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+							{0,    0,  500,  500,    0,  500,  250,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+							{0,  350,  350,  310,  260,  200,  200,  200,   40,  350,  350,  330,  280,  230,  210,  210,   40}};
+
+	unsigned char armPos[5][7] = {{0,5,2,0,0,0,0},
+								  {0,0,0,5,2,0,0},
+								  {0,0,0,5,2,0,0},
+								  {0,0,0,0,0,0,0},
+							      {0,0,0,0,0,0,0}};//unsigned char armPos[] = {0,  0,  5,  2,  0,  5,  2};//1,2は動きながら､5,6は止まったまま
+	unsigned char armOrder = 0;
 
 	float targetRadian=0;
+
  	float radian = 0;
  	float power;
 	float radianOld;
@@ -67,6 +90,7 @@ int main(void)
 
 	int cnt=0,buzzerCnt = 0,spinCnt;
 	int testMode,swFlag;
+	int cell=0;
 
 	int encOld[] = {0,0,0};
 	int encFlag[] = {0,0,0};
@@ -93,7 +117,6 @@ int main(void)
 	a2.setupAnalogIn();
 	a3.setupAnalogIn();
 	a4.setupAnalogIn();*/
-
 
 	/*while(1){
 
@@ -197,9 +220,8 @@ int main(void)
 		omni.request(0,0,0);
 		omni.drive();
 		bz.pwmWrite(0);
-		while(1){
-
-			if(sw1.digitalRead() == 0){
+		while(cell >= 100){
+			/*if(sw1.digitalRead() == 0){
 				while(sw1.digitalRead() == 0);
 				if(testMode < 6)testMode++;
 				swFlag = 1;
@@ -247,6 +269,18 @@ int main(void)
 					serial.printf("DEGREE CONTROL\n\r");
 				}
 				sound(SOUND_OPERATION);
+			}*/
+			if(sw0.digitalRead() == 0 && cell >= 10){
+				cell/=10;
+			}
+			if(sw1.digitalRead() == 0 && 1){
+				cell++;
+			}
+			if(sw2.digitalRead() == 0 && cell <= 100){
+				cell*=10;
+			}
+			if(sw3.digitalRead() == 0 && 1){
+				cell--;
 			}
 		}
 		sound(SOUND_ENTER);
@@ -262,38 +296,38 @@ int main(void)
 			while(sw0.digitalRead()){
 				odm.update();
 
-				distanceX = targetX[cnt] - odm.integralX;
-				distanceY = targetY[cnt] - odm.integralY;
+				distanceX = targetX[profile][cnt] - odm.integralX;
+				distanceY = targetY[profile][cnt] - odm.integralY;
 
 				if(sqrt(distanceX*distanceX + distanceY*distanceY) < c_radius){//目標地点が近ければ仮想軌道追尾はしない
-			        d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
+			        d_radian = atan2(targetY[profile][cnt] - odm.integralY,targetX[profile][cnt] - odm.integralX);
 			        //serial.printf(" CLOSE");
 			    }else{
-			        if(targetX[cnt-1] == targetX[cnt]){
-			            v_distance = targetX[cnt] - odm.integralX;
+			        if(targetX[profile][cnt-1] == targetX[profile][cnt]){
+			            v_distance = targetX[profile][cnt] - odm.integralX;
 			            if(v_distance <0 )v_distance=-v_distance;
 			        }else{
-			            if(targetY[cnt-1] != targetY[cnt]){
-			                v_slope = (targetY[cnt] - targetY[cnt-1])/(targetX[cnt] + targetX[cnt-1]);
+			            if(targetY[profile][cnt-1] != targetY[profile][cnt]){
+			                v_slope = (targetY[profile][cnt] - targetY[profile][cnt-1])/(targetX[profile][cnt] + targetX[profile][cnt-1]);
 			                if(v_slope > 1 || v_slope < -1){//X-Y座標､直線との距離
-			                    v_distance = (v_slope*odm.integralX) - v_slope*targetX[cnt-1] + targetY[cnt-1] - odm.integralY;
+			                    v_distance = (v_slope*odm.integralX) - v_slope*targetX[profile][cnt-1] + targetY[profile][cnt-1] - odm.integralY;
 			                    if(v_distance < 0)v_distance = -v_distance;
 			                    v_distance /= sqrt(1 + (v_slope*v_slope));
 			                }else{//Y-X座標､直線との距離
-			                    v_slope = (targetX[cnt] - targetX[cnt-1])/(targetY[cnt] - targetY[cnt-1]);
-			                    v_distance = v_slope*odm.integralY - v_slope*targetY[cnt-1] + targetX[cnt-1] - odm.integralX;
+			                    v_slope = (targetX[profile][cnt] - targetX[profile][cnt-1])/(targetY[profile][cnt] - targetY[profile][cnt-1]);
+			                    v_distance = v_slope*odm.integralY - v_slope*targetY[profile][cnt-1] + targetX[profile][cnt-1] - odm.integralX;
 			                    if(v_distance < 0)v_distance = -v_distance;
 			                    v_distance /= sqrt(1 + (v_slope*v_slope));
 			                }
 			            }else{
-			                v_distance = targetY[cnt] - odm.integralY;
+			                v_distance = targetY[profile][cnt] - odm.integralY;
 			            }
 			        }
 			        //serial.printf("%f\n",v_distance);
 
 			        if(v_distance < c_radius){
-			            v_radian = atan2((targetY[cnt] - targetY[cnt-1]),(targetX[cnt] - targetX[cnt-1]));
-			            q_radian = atan2((odm.integralY - targetY[cnt]),(odm.integralX - targetX[cnt])) - v_radian;
+			            v_radian = atan2((targetY[profile][cnt] - targetY[profile][cnt-1]),(targetX[profile][cnt] - targetX[profile][cnt-1]));
+			            q_radian = atan2((odm.integralY - targetY[profile][cnt]),(odm.integralX - targetX[profile][cnt])) - v_radian;
 
 			            d_radian = asin(v_distance/c_radius);
 			            if(q_radian < 0)q_radian+=2*M_PI;
@@ -319,7 +353,7 @@ int main(void)
 			                //serial.printf(" Q4");
 			            }
 			        }else{
-			        	d_radian = atan2(targetY[cnt] - odm.integralY,targetX[cnt] - odm.integralX);
+			        	d_radian = atan2(targetY[profile][cnt] - odm.integralY,targetX[profile][cnt] - odm.integralX);
 			            //serial.printf(" V_LINE FAR");
 			        }
 			    }
@@ -329,11 +363,6 @@ int main(void)
 				power = sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P + (sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P - power)*GAIN_D;
 				if(power > 1.0)power = 1.0;
 
-				if(odm.radianAbs > M_PI){
-					radianDif = odm.radianAbs - 2*M_PI;
-				}else{
-					radianDif = odm.radianAbs;
-				}
 				radianDif = odm.radianAbs - targetRadian;
 				radianOld = radian;
 				if(radianDif < M_PI){
@@ -341,42 +370,41 @@ int main(void)
 				}else{
 					radian = radianDif - 2*M_PI;
 				}
-				spin = radian*radian*radian*radian*radian*radian*radian*10000 + (radian - radianOld)*GAIN_SPIN_D;
+				spin = radian*radian*radian*radian*radian*100000 + (radian - radianOld)*GAIN_SPIN_D;
 
 				if(spin<-3.0)spin=-3.0;
 				if(spin>3.0)spin=3.0;
 
 
-
-				if(armTime+1000 > millis()){
+				if(armTime + 1000 > millis() && armOrder != 0){
 					motor3.drive(1.0,(armOrder&2)>>1,armOrder&1);
+					serial.printf("MOVING %d\n\r",armOrder);
 				}else{
 					armOrder=0;
 					motor3.drive(0,0,0);
 				}
 
-				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10  && armOrder == 0){//目標地点に接近した時の処理
-					if(cnt <= TargetQuantity && armPos[cnt] == 0){
-						cnt++;
-						armOrder = armPos[cnt];
-						serial.printf("NEXT POINT");
-					}else if(cnt <= TargetQuantity){
-						if(armPos[cnt] <= 2){
-							cnt++;
-							armOrder=armPos[cnt];
+				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 15 && cnt <= targetQuantity[profile]){//目標地点に接近した時の処理
+					cnt++;
+					if(armPos[profile][cnt] != 0){
+						if(armPos[profile][cnt] > 2 && armOrder == 0 && armTime + 1000 < millis()){
+							armOrder = armPos[profile][cnt];
 							armTime = millis();
-							serial.printf("NEXT POINT WITH ARM MOVE");
-						}else{
-							omni.request(0,0,0);
-							omni.drive();
-							motor3.drive(1.0,armPos[cnt]>>1,armPos[cnt]);
-							waitBreak(1000);
-							motor3.drive(0,0,0);
-
-							cnt++;
-							armOrder=armPos[cnt];
-							serial.printf("NEXT POINT WITH ARM MOVE");
+							cnt--;
+							serial.printf("ARM MOVE BEGIN %d\n\r",armOrder);
+						}else if(armOrder != 0 && armTime + 1000 >= millis()){
+							cnt--;
+						}else/* if(armOrder == 0 && armTime + 1000 < millis())*/{
+							if(armPos[profile][cnt+1] != 0){
+								armOrder = armPos[profile][cnt+1];
+								armTime = millis();
+								serial.printf("NETX POINT WITH ARM MOVE %d\n\r",armOrder);
+							}
 						}
+					}else{//アーム操作要求なし
+						armOrder = 0;
+						armTime = millis() - 1000;
+						serial.printf("NEXT POINT\n\r");
 					}
 					buzzerCnt = 10;
 				}
@@ -392,7 +420,8 @@ int main(void)
 					cycleTime+=ControlCycle;
 					omni.request(d_radian - odm.radianAbs,power,-spin);
 					omni.drive();
-					serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f , %d , %d ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian,armOrder,armTime);
+					//serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f , %d , %d , %d ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian,armOrder,armTime);
+					serial.printf("%d %d %d\n\r",cnt,armTime,armOrder);
 					//serial.printf("\n\r %d,%f,%f,%d,%d,%d,%f,%f,",odm.radianOrg,spin,radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],odm.integralX,odm.integralY);
 				}
 
