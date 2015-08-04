@@ -47,37 +47,41 @@ void sound(int pattern);
 int main(void)
 {
 	float spin=0,radianDif,distanceX,distanceY;
-	//float targetY[] = {0,350,350,310,260,200,200,200, 40,350,350,330,280,230,210,210, 40};//RP
-	//float targetX[] =
-
-	//float targetY[] = ;
-	//float targetX[] =
-
-	//float targetX[] =
-	//float targetY[] = ;
-
-	//float targetX[] =
-	//float targetY[] = ;
 	unsigned char profile = 0;
-	unsigned char targetQuantity[] = {4,6,4,5,6,16,0,0};//座標のある最後の配列の数
-	float targetX[6][17] = {{0,    0,    0, -750, -750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+	unsigned char targetQuantity[] = {4,6,4,5,6,16,0};//座標のある最後の配列の数
+	float targetX[7][17] = {{0,    0,    0, -750, -750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 						 	{0,    0,  750,  750,  750, -750, -750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 						 	{0,    0, 1500, 1500, 1500,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 					 	 	{0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 					 	 	{0,  500,  500,    0,    0,  250,  500,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
-						 	{0,    0,   80,  160,  160,  160,  100,    0,  220,  220,  320,  380,  400,  380,  320,  220,  220}};
-	float targetY[6][17] = {{0, 1750, 1000, 1000,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
+						 	{0,    0,   80,  160,  160,  160,  100,    0,  220,  220,  320,  380,  400,  380,  320,  220,  220},
+							{0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0}};
+	float targetY[7][17] = {{0, 1750, 1000, 1000,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 							{0, 1000, 1000, 1750, 1000, 1000,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 							{0, 1000, 1000, 1750,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 							{0,  300,    0,  300,    0,  300,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
 							{0,    0,  500,  500,    0,  500,  250,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
-							{0,  350,  350,  310,  260,  200,  200,  200,   40,  350,  350,  330,  280,  230,  210,  210,   40}};
+							{0,  350,  350,  310,  260,  200,  200,  200,   40,  350,  350,  330,  280,  230,  210,  210,   40},
+							{0, 1500,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0}};
 
-	unsigned char armPos[5][7] = {{0,5,2,0,0,0,0},
-								  {0,0,0,5,2,0,0},
-								  {0,0,0,5,2,0,0},
-								  {0,0,0,0,0,0,0},
-							      {0,0,0,0,0,0,0}};//unsigned char armPos[] = {0,  0,  5,  2,  0,  5,  2};//1,2は動きながら､5,6は止まったまま
+	unsigned char armPos[7][17] = {{0,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								   {0,0,0,5,2,0,0,0,0,0,0,0,0,0,0,0,0},
+								   {0,0,0,5,2,0,0,0,0,0,0,0,0,0,0,0,0},
+								   {0,0,5,2,0,5,2,0,0,0,0,0,0,0,0,0,0},
+							       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+							       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								   {0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};//unsigned char armPos[] = {0,  0,  5,  2,  0,  5,  2};//1,2は動きながら､5,6は止まったまま
+
+	float targetDegree[7][17] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+								 {0,180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+
+	float percentage=0;
+
 	unsigned char armOrder = 0;
 
 	float targetRadian=0;
@@ -90,7 +94,6 @@ int main(void)
 
 	int cnt=0,buzzerCnt = 0,spinCnt;
 	int testMode,swFlag;
-	int cell=0;
 
 	int encOld[] = {0,0,0};
 	int encFlag[] = {0,0,0};
@@ -106,11 +109,11 @@ int main(void)
 	A2 a2;
 	A3 a3;
 	A4 a4;
-	a0.setupDigitalInPullUp();
-	a1.setupDigitalInPullUp();
-	a2.setupDigitalInPullUp();
-	a3.setupDigitalInPullUp();
-	a4.setupDigitalInPullUp();
+	a0.setupDigitalIn();
+	a1.setupDigitalIn();
+	a2.setupDigitalIn();
+	a3.setupDigitalIn();
+	a4.setupDigitalIn();
 
 	/*a0.setupAnalogIn();
 	a1.setupAnalogIn();
@@ -119,13 +122,8 @@ int main(void)
 	a4.setupAnalogIn();*/
 
 	/*while(1){
-
-		if(a0.digitalRead())serial.printf("0");
-		if(a1.digitalRead())serial.printf("1");
-		if(a2.digitalRead())serial.printf("2");
-		if(a3.digitalRead())serial.printf("3");
-		if(a4.digitalRead())serial.printf("4");
-		serial.printf("rn \n\r");
+		serial.printf("%d %d %d %d "
+				"%d\n\r",a0.digitalRead(),a1.digitalRead(),a2.digitalRead(),a3.digitalRead(),a4.digitalRead());
 		//serial.printf("%f %f %f %f %f\n\r",a0.analogRead(),a1.analogRead(),a2.analogRead(),a3.analogRead(),a4.analogRead());
 		wait(100);
 	}*/
@@ -220,8 +218,8 @@ int main(void)
 		omni.request(0,0,0);
 		omni.drive();
 		bz.pwmWrite(0);
-		while(cell >= 100){
-			/*if(sw1.digitalRead() == 0){
+		while(sw2.digitalRead()){
+			if(sw1.digitalRead() == 0){
 				while(sw1.digitalRead() == 0);
 				if(testMode < 6)testMode++;
 				swFlag = 1;
@@ -230,10 +228,6 @@ int main(void)
 				while(sw3.digitalRead() == 0);
 				if(testMode > 0)testMode--;
 				swFlag = 2;
-			}
-			if(sw2.digitalRead() == 0){
-				while(sw2.digitalRead() == 0);
-				break;
 			}
 
 			led0.digitalWrite(testMode & 1);
@@ -269,28 +263,40 @@ int main(void)
 					serial.printf("DEGREE CONTROL\n\r");
 				}
 				sound(SOUND_OPERATION);
-			}*/
-			if(sw0.digitalRead() == 0 && cell >= 10){
-				cell/=10;
-			}
-			if(sw1.digitalRead() == 0 && 1){
-				cell++;
-			}
-			if(sw2.digitalRead() == 0 && cell <= 100){
-				cell*=10;
-			}
-			if(sw3.digitalRead() == 0 && 1){
-				cell--;
 			}
 		}
 		sound(SOUND_ENTER);
+		while(sw2.digitalRead() == 0);
 
 		switch(testMode){
 
 		case 0:
+			wait(500);
+			while(sw2.digitalRead()){
+				if(sw1.digitalRead() == 0 && profile > 0){
+					while(sw1.digitalRead() == 0);
+					profile--;
+					serial.printf("PROFILE : %d\n\r",profile);
+					sound(SOUND_OPERATION);
+
+				}
+				if(sw3.digitalRead() == 0 && profile < 6){
+					while(sw3.digitalRead() == 0);
+					profile++;
+					serial.printf("PROFILE : %d\n\r",profile);
+					sound(SOUND_OPERATION);
+				}
+				led0.digitalWrite(profile & 1);
+				led1.digitalWrite((profile & 2) >> 1);
+				led2.digitalWrite((profile & 4) >> 2);
+				led3.digitalWrite((profile & 8) >> 3);
+
+			}
+			sound(SOUND_ENTER);
 			odm.update();
 			odm.reset();
 			odm.update();
+			armTime = millis() - 1000;
 			cycleTime = millis() + ControlCycle;
 			serial.printf("%f,%f,%f,%d,%d,%d\n\r",odm.integralX,odm.integralY,odm.radianAbs,odm.encData[0],odm.encData[1],odm.encData[2]);
 			while(sw0.digitalRead()){
@@ -363,6 +369,17 @@ int main(void)
 				power = sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P + (sqrt(distanceX*distanceX + distanceY*distanceY)*GAIN_P - power)*GAIN_D;
 				if(power > 1.0)power = 1.0;
 
+
+				targetRadian = targetDegree[profile][cnt-1] * sqrt(distanceX*distanceX + distanceY*distanceY);
+				percentage = sqrt(distanceX*distanceX + distanceY*distanceY);
+
+				distanceX = targetX[profile][cnt-1] - odm.integralX;
+				distanceY = targetY[profile][cnt-1] - odm.integralY;
+
+				targetRadian += targetDegree[profile][cnt] * sqrt(distanceX*distanceX + distanceY*distanceY);
+				percentage += sqrt(distanceX*distanceX + distanceY*distanceY);
+
+				targetRadian = (targetRadian * M_PI) / (percentage*180);
 				radianDif = odm.radianAbs - targetRadian;
 				radianOld = radian;
 				if(radianDif < M_PI){
@@ -375,6 +392,8 @@ int main(void)
 				if(spin<-3.0)spin=-3.0;
 				if(spin>3.0)spin=3.0;
 
+				distanceX = targetX[profile][cnt] - odm.integralX;
+				distanceY = targetY[profile][cnt] - odm.integralY;
 
 				if(armTime + 1000 > millis() && armOrder != 0){
 					motor3.drive(1.0,(armOrder&2)>>1,armOrder&1);
@@ -384,29 +403,33 @@ int main(void)
 					motor3.drive(0,0,0);
 				}
 
-				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 15 && cnt <= targetQuantity[profile]){//目標地点に接近した時の処理
+				if(sqrt(distanceX*distanceX + distanceY*distanceY) < 10 && cnt <= targetQuantity[profile]){//目標地点に接近した時の処理
 					cnt++;
 					if(armPos[profile][cnt] != 0){
-						if(armPos[profile][cnt] > 2 && armOrder == 0 && armTime + 1000 < millis()){
+						if(armPos[profile][cnt] > 2 && armOrder == 0 && armTime + 1000 <= millis()){
 							armOrder = armPos[profile][cnt];
 							armTime = millis();
 							cnt--;
 							serial.printf("ARM MOVE BEGIN %d\n\r",armOrder);
 						}else if(armOrder != 0 && armTime + 1000 >= millis()){
 							cnt--;
-						}else/* if(armOrder == 0 && armTime + 1000 < millis())*/{
+						}else /*if(armOrder == 0 && armTime + 1000 < millis())*/{
 							if(armPos[profile][cnt+1] != 0){
 								armOrder = armPos[profile][cnt+1];
 								armTime = millis();
 								serial.printf("NETX POINT WITH ARM MOVE %d\n\r",armOrder);
 							}
-						}
+						}/*else{
+							serial.printf("END\n\r");
+						}*/
 					}else{//アーム操作要求なし
 						armOrder = 0;
 						armTime = millis() - 1000;
 						serial.printf("NEXT POINT\n\r");
 					}
 					buzzerCnt = 10;
+				}else if(sqrt(distanceX*distanceX + distanceY*distanceY) < 5 && cnt > targetQuantity[profile]){
+					break;
 				}
 
 				if(buzzerCnt > 0){
@@ -420,8 +443,8 @@ int main(void)
 					cycleTime+=ControlCycle;
 					omni.request(d_radian - odm.radianAbs,power,-spin);
 					omni.drive();
-					//serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f , %d , %d , %d ,",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian,armOrder,armTime);
-					serial.printf("%d %d %d\n\r",cnt,armTime,armOrder);
+					//serial.printf("\n\r%f , %f , %f , %f , %f , %f , %f ,%d , %d , %d , %f , %f , %f , %d",odm.integralX,odm.integralY,v_distance,v_radian,d_r,q_radian,d_radian,odm.encData[0],odm.encData[1],odm.encData[2],radian,sqrt(distanceX*distanceX + distanceY*distanceY),spin,millis());
+					serial.printf("%d %d %d %f\n\r",cnt,armTime,armOrder,sqrt(distanceX*distanceX + distanceY*distanceY));
 					//serial.printf("\n\r %d,%f,%f,%d,%d,%d,%f,%f,",odm.radianOrg,spin,radian,odm.encTest[0],odm.encTest[1],odm.encTest[2],odm.integralX,odm.integralY);
 				}
 

@@ -47,7 +47,8 @@ void OmniOdometry::update(){
     integralX = cumulativeX + X*cos(radianAbs) - Y*sin(radianAbs);
     integralY = cumulativeY + X*sin(radianAbs) + Y*cos(radianAbs);//絶対座標に変換
 
-    if((encCntDif > 100 && encCntDif <= 1000) || radianDelta - radianOrg > 50 || radianDelta - radianOrg < -50){						//前回計算時との差が一定以上に達したら計算
+    if(
+    		encCntDif > 100 || radianDelta - radianOrg > 50 || radianDelta - radianOrg < -50){						//前回計算時との差が一定以上に達したら計算
     	radianDelta = radianOrg;
         radian = atan2(Y,X);
         cumulativeX += X*cos(radianAbs) - Y*sin(radianAbs);
@@ -56,11 +57,6 @@ void OmniOdometry::update(){
         encOld[0] = encData[0];// - encOffSet[0];
         encOld[1] = encData[1];// - encOffSet[1];
         encOld[2] = encData[2];// - encOffSet[2];
-    }else if(encCntDif >= 1000){
-    	//radianCorrection -= encCntDif;
-    	encOld[0] = encData[0];// - encOffSet[0];
-        encOld[1] = encData[1];// - encOffSet[1];
-    	encOld[2] = encData[2];// - encOffSet[2];
     }
 
 };
