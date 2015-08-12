@@ -399,7 +399,7 @@ int main(void)
 					motor3.drive(1.0,(armOrder&2)>>1,armOrder&1);
 					serial.printf("MOVING %d\n\r",armOrder);
 				}else{
-					armOrder=0;
+					armOrder=4;
 					motor3.drive(0,0,0);
 				}
 
@@ -411,18 +411,18 @@ int main(void)
 							armTime = millis();
 							cnt--;
 							serial.printf("ARM MOVE BEGIN %d\n\r",armOrder);
-						}else if(armOrder != 0 && armTime + 1000 >= millis()){
+						}else if(armOrder != 0 && armTime + 1000 > millis()){
 							cnt--;
-						}else /*if(armOrder == 0 && armTime + 1000 < millis())*/{
-							if(armPos[profile][cnt+1] != 0){
-								armOrder = armPos[profile][cnt+1];
-								armTime = millis();
-								serial.printf("NETX POINT WITH ARM MOVE %d\n\r",armOrder);
-							}
-						}/*else{
-							serial.printf("END\n\r");
-						}*/
+						}else if(armOrder == 4 && armTime + 1000 <= millis()){
+							armOrder = 0;
+							serial.printf("ARM MOVED %d\n\r NEXT POINT\n\r",armOrder);
+						}
 					}else{//ƒA[ƒ€‘€ì—v‹‚È‚µ
+						if(armPos[profile][cnt+1] != 0){
+							armOrder = armPos[profile][cnt+1];
+							armTime = millis();
+							serial.printf("NETX POINT WITH ARM MOVE %d\n\r",armOrder);
+						}
 						armOrder = 0;
 						armTime = millis() - 1000;
 						serial.printf("NEXT POINT\n\r");
