@@ -272,6 +272,7 @@ int main(void)
 
 		case 0:
 			wait(500);
+			serial.printf("PROFILE : %d\n\r",profile);
 			while(sw2.digitalRead()){
 				if(sw1.digitalRead() == 0 && profile > 0){
 					while(sw1.digitalRead() == 0);
