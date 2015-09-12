@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\base /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\cmsis_boot /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb\usb_lib\otg /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1 /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb\usb_lib\cdc /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\cmsis_lib /I..\..\..\..\..\Users\hiroyuki\Documents\BOX /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\cmsis_lib\include /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb\usb_lib /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_controller /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\sd\fatfs /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb\usb_conf /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\cmsis /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\usb\usb_lib\core /I..\..\..\..\..\Users\hiroyuki\Documents\BOX\ichigoplus2.2-1.1\layer_driver\board\stm32f4_config\sd">
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_port.h" lastModified="14ecf3f61de">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\error.c" lastModified="14ecf3f6568">
+         <include file="..\..\..\layer_driver\board\error.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\base\logging.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\utilplus.cpp" lastModified="14ecf3f6549">
+         <include file="..\..\..\layer_driver\base\util.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_i2c.h" lastModified="14ecf3f61be">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_can.h" lastModified="14ecf3f6587">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_can.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_port.c" lastModified="14ecf3f61ce">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_i2c.c" lastModified="14ecf3f61be">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_i2c.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_core.h" lastModified="14ecf3f64bc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_regs.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_defines.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_can.c" lastModified="14ecf3f619f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_can.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ff.h" lastModified="14ecf3f624b">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\integer.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ffconf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\digital.cpp" lastModified="14ecf3f60f3">
+         <include file="..\..\..\layer_driver\base\digital.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_usbdisk.h" lastModified="14ecf3f6410">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_core.c" lastModified="14ecf3f64ac">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ff.c" lastModified="14ecf3f6633">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ff.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.h" lastModified="14ecf3f642f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_core.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\analog.hpp" lastModified="14ecf3f60e4">
+      </source>
+      <source file="..\..\..\cmsis\core_cm4.h" lastModified="14ecf3f61fd">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+         <include file="..\..\..\cmsis\core_cm4_simd.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_usbdisk.c" lastModified="14ecf3f6410">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_usbdisk.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.c" lastModified="14ecf3f642f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="14ecf3f5ef0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_can.c" lastModified="14ecf3f5ec1">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_can.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\iwdg_software_reset.h" lastModified="14ecf3f620d">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14ecf3f5eff">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\watchdog.h" lastModified="14ecf3f6170">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14ecf3f5e53">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\iwdg_software_reset.c" lastModified="14ecf3f61fd">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\iwdg_software_reset.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14ecf3f5f0f">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\watchdog.c" lastModified="14ecf3f6170">
+         <include file="..\..\..\layer_driver\base\watchdog.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_iwdg.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\motor.cpp" lastModified="14ee6e80301">
+         <include file="..\..\..\layer_controller\motor.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_pwm.h" lastModified="14ecf3f61ed">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.h" lastModified="14ecf3f645e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_pwm.c" lastModified="14ecf3f65c6">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_pwm.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.c" lastModified="14ecf3f645e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\integer.h" lastModified="14ecf3f6a2b">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14ecf3f5ec1">
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\analog.cpp" lastModified="14ecf3f60e4">
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h" lastModified="14ecf3f647e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_def.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\encoder.hpp" lastModified="14ecf3f6103">
+      </source>
+      <source file="..\..\..\layer_driver\board\pin.hpp" lastModified="14ecf3f6190">
+         <include file="..\..\..\layer_driver\base\serial.hpp"/>
+         <include file="..\..\..\layer_driver\base\digital.hpp"/>
+         <include file="..\..\..\layer_driver\base\analog.hpp"/>
+         <include file="..\..\..\layer_driver\base\encoder.hpp"/>
+         <include file="..\..\..\layer_driver\base\pwm.hpp"/>
+         <include file="..\..\..\layer_driver\base\can.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.c" lastModified="14ecf3f646e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14ecf3f620d">
+         <include file="..\..\..\cmsis\core_cm4.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\stm32_ub_fatfs.h" lastModified="14ecf3f622c">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ff.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_sdcard.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_usbdisk.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_atadrive.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\mcutime.h" lastModified="14ecf3f650a">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="14ecf3f5f1f">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\stm32_ub_fatfs.c" lastModified="14ecf3f622c">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\stm32_ub_fatfs.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\mcutime.c" lastModified="14ecf3f6113">
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_systick.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h" lastModified="14ecf3f5e73">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14ecf3f5ee0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\util.h" lastModified="14ecf3f6161">
+      </source>
+      <source file="..\..\..\layer_driver\base\util.c" lastModified="14ecf3f6921">
+         <include file="..\..\..\layer_driver\base\util.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14ecf3f5e92">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14ecf3f622c">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14ecf3f5ed0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\ffconf.h" lastModified="14ecf3f625b">
+      </source>
+      <source file="..\..\..\layer_driver\base\encoder.cpp" lastModified="14ecf3f64eb">
+         <include file="..\..\..\layer_driver\base\encoder.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h" lastModified="14ecf3f642f">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14ecf3f65f5">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14ecf3f5e34">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\pin.cpp" lastModified="14ecf3f6180">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_usart.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_encoder.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_systick.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_usart.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_pwm.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_adc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_can.h"/>
+         <include file="..\..\..\layer_driver\board\pin.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_iwdg.h" lastModified="14ecf3f61ce">
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_systick.h" lastModified="14ecf3f61ed">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd.h" lastModified="14ecf3f64bc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_core.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_iwdg.c" lastModified="14ecf3f61be">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_iwdg.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_systick.c" lastModified="14ecf3f61ed">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_systick.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd.c" lastModified="14ecf3f64bc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_bsp.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_sdcard.h" lastModified="14ecf3f6401">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="14ecf3f5e73">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\blink.hpp" lastModified="14ecf3f60d4">
+         <include file="..\..\..\layer_driver\base\digital.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\circuit\can_encoder.hpp" lastModified="14ecf3f3b51">
+         <include file="..\..\..\layer_driver\base\can.hpp"/>
+         <include file="..\..\..\layer_driver\base\encoder.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_sdcard.c" lastModified="14ecf3f6401">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_sdcard.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_defines.h" lastModified="14ecf3f64cc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\motor.h" lastModified="14ee7a72202">
+         <include file="..\..\..\layer_driver\base\digital.hpp"/>
+         <include file="..\..\..\layer_driver\base\pwm.hpp"/>
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+         <include file="..\..\..\layer_driver\base\encoder.hpp"/>
+         <include file="..\..\..\layer_driver\board\pin.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\can.hpp" lastModified="14ecf3f60f3">
+      </source>
+      <source file="..\..\..\syscalls\syscalls.c" lastModified="14ecf3f7602">
+         <include file="..\..\..\layer_driver\base\serial.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h" lastModified="14ecf3f648d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_def.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_usr.c" lastModified="14ecf3f644f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_usr.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_regs.h" lastModified="14ecf3f64db">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h" lastModified="14ecf3f643f">
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.h" lastModified="14ecf3f64cc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_usart.h" lastModified="14ecf3f61fd">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.c" lastModified="14ecf3f648d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14ecf3f65e5">
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.c" lastModified="14ecf3f64cc">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usb_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_usart.c" lastModified="14ecf3f69cd">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_usart.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_atadrive.h" lastModified="14ecf3f6401">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14ecf3f5eb1">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\odometry.h" lastModified="14ed8ff3b01">
+         <include file="..\..\..\layer_driver\base\digital.hpp"/>
+         <include file="..\..\..\layer_driver\base\pwm.hpp"/>
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+         <include file="..\..\..\layer_driver\base\encoder.hpp"/>
+         <include file="..\..\..\layer_driver\board\pin.hpp"/>
+         <include file="..\..\..\layer_driver\circuit\can_encoder.hpp"/>
+         <include file="..\..\..\layer_driver\base\can.hpp"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_crc.h" lastModified="14ecf3f5e63">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_encoder.h" lastModified="14ecf3f61be">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="14ecf3f8544">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_can.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_crc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_can.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_crc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h" lastModified="14ecf3f5e63">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_atadrive.c" lastModified="14ecf3f63f1">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_atadrive.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_encoder.c" lastModified="14ecf3f61af">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_encoder.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="14ecf3f5ed0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\blink.cpp" lastModified="14ecf3f60d4">
+         <include file="..\..\..\layer_controller\blink.hpp"/>
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\circuit\can_encoder.cpp" lastModified="14ecf3f4312">
+         <include file="..\..\..\layer_driver\circuit\can_encoder.hpp"/>
+         <include file="..\..\..\layer_driver\base\util.hpp"/>
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\can.cpp" lastModified="14ecf3f64db">
+         <include file="..\..\..\layer_driver\base\can.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_usr.h" lastModified="14ecf3f649d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14ecf3f5e73">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14ecf3f5eff">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\util.hpp" lastModified="14ecf3f6161">
+         <include file="..\..\..\layer_driver\base\util.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14ecf3f5ee0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\pwm.hpp" lastModified="14ecf3f6122">
+      </source>
+      <source file="..\..\..\layer_driver\base\serial.hpp" lastModified="14ecf3f651a">
+         <include file="..\..\..\layer_driver\base\util.hpp"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14ecf3f65e5">
+      </source>
+      <source file="..\..\..\layer_driver\base\software_reset.h" lastModified="14ecf3f6141">
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_vcp.h" lastModified="14ecf3f6856">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h" lastModified="14ecf3f5e82">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\software_reset.c" lastModified="14ecf3f6132">
+         <include file="..\..\..\layer_driver\base\software_reset.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\iwdg_software_reset.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\logging.h" lastModified="14ecf3f68e3">
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_adc.h" lastModified="14ecf3f619f">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_port.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14ecf3f5e92">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_can.h" lastModified="14ecf3f5e63">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h" lastModified="14ecf3f644f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_def.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14ecf3f5e44">
+         <include file="..\..\..\layer_driver\base\system.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_vcp.c" lastModified="14ecf3f645e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_vcp.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h" lastModified="14ecf3f5ea2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14ecf3f5e82">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\logging.c" lastModified="14ecf3f64fb">
+         <include file="..\..\..\layer_driver\base\logging.h"/>
+         <include file="..\..\..\layer_driver\base\serial.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\config_adc.c" lastModified="14ecf3f6190">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\config_adc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.c" lastModified="14ecf3f643f">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_regs.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14ecf3f5eb1">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_iwdg.c" lastModified="14ecf3f5ef0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h" lastModified="14ecf3f623b">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\integer.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\config_usb.h" lastModified="14ecf3f6420">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_usr.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_vcp.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_def.h" lastModified="14ecf3f647e">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.c" lastModified="14ecf3f623b">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\diskio.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_usbdisk.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_atadrive.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\sd\fatfs\lo_level_ub\stm32_ub_sdcard.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_sdio.c" lastModified="14ecf3f5f0f">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\digital.hpp" lastModified="14ecf3f64eb">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_crc.c" lastModified="14ecf3f5ed0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_crc.h"/>
+      </source>
+      <source file="..\..\..\layer_controller\odometry.cpp" lastModified="14ef7cecccf">
+         <include file="..\..\..\layer_controller\odometry.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.h" lastModified="14ecf3f649d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_def.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_conf.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\config_usb.c" lastModified="14ecf3f6808">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\config_usb.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_core.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_usr.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\cdc\usbd_cdc_vcp.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\otg\usb_dcd_int.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_adc.c" lastModified="14ecf3f5ec1">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\serial.cpp" lastModified="14ecf3f651a">
+         <include file="..\..\..\layer_driver\base\serial.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h" lastModified="14ecf3f65f5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_crc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.c" lastModified="14ecf3f648d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_req.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_lib\core\usbd_ioreq.h"/>
+         <include file="..\..\..\layer_driver\board\stm32f4_config\usb\usb_conf\usbd_desc.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\system.h" lastModified="14ecf3f6151">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_iwdg.h" lastModified="14ecf3f5e82">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\stm32f4_config\name_converter.c" lastModified="14ecf3f620d">
+         <include file="..\..\..\layer_driver\board\stm32f4_config\name_converter.h"/>
+      </source>
+      <source file="..\..\..\layer_driver\base\system.c" lastModified="14ecf3f6529">
+         <include file="..\..\..\layer_driver\base\system.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\layer_driver\base\mcutime.h"/>
+         <include file="..\..\..\layer_driver\base\logging.h"/>
+         <include file="..\..\..\layer_driver\base\serial.hpp"/>
+      </source>
+      <source file="..\..\..\layer_driver\board\error.h" lastModified="14ecf3f6180">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h" lastModified="14ecf3f5ea2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+   </includePath>
+</dependencies>

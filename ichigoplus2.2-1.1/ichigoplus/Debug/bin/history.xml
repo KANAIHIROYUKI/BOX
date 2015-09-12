@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -Map=ichigoplus.map -O0 --gc-sections -lm -lgcc -lc -lstdc++ -LC:\CooCox\CoIDE\configuration\ProgramData\ichigoplus -TC:\CooCox\CoIDE\configuration\ProgramData\ichigoplus/arm-gcc-link.ld -g">
-      <target file="ichigoplus.elf" lastModified="14f371e7242">
+      <target file="ichigoplus.elf" lastModified="14f73632ff0">
          <source file="..\obj\config_pwm.o" lastModified="14f371e511d"/>
          <source file="..\obj\usb_core.o" lastModified="14f371e51ae"/>
          <source file="..\obj\iwdg_software_reset.o" lastModified="14f371e51ed"/>
@@ -24,7 +24,7 @@
          <source file="..\obj\stm32f4xx_iwdg.o" lastModified="14f371e5ac1"/>
          <source file="..\obj\usbd_core.o" lastModified="14f371e5b6d"/>
          <source file="..\obj\pin.o" lastModified="14f371e5dbf"/>
-         <source file="..\obj\main.o" lastModified="14f371e5eb8"/>
+         <source file="..\obj\main.o" lastModified="14f73632d1c"/>
          <source file="..\obj\analog.o" lastModified="14f371e5ee7"/>
          <source file="..\obj\stm32_ub_fatfs.o" lastModified="14f371e5f35"/>
          <source file="..\obj\stm32f4xx_rcc.o" lastModified="14f371e5fa2"/>
